@@ -2,7 +2,7 @@ name: DXY M5 visible chart
 on:
   workflow_dispatch:
   schedule:
-    - cron: '35 * * * *'
+    - cron: '*/5 * * * *'
 permissions:
   contents: write
 concurrency:
