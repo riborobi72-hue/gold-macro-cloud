@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:US02Y",
   "symbol": "US02Y",
   "timeframe": "5min",
-  "capturedAt": "2026-10-16T21:14:25.842152+00:00",
+  "capturedAt": "2026-10-16T22:14:22.279486+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "instrumentNature": "US Government Bonds 2 YR Yield",
@@ -12,7 +12,7 @@
   "freshBars": true,
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "38967740353"
+    "runId": "38974342966"
   },
   "rows": [
     [
@@ -1680,6 +1680,13 @@
       "4.715",
       "4.715",
       "4.715"
+    ],
+    [
+      "2026-10-16T21:25:00Z",
+      "4.715",
+      "4.715",
+      "4.715",
+      "4.715"
     ]
   ],
   "observedClosedBars": 121,
@@ -1687,6 +1694,11 @@
     {
       "after": "2026-10-16T05:15:00Z",
       "before": "2026-10-16T05:30:00Z",
+      "cause": "NON_VERIFICATO"
+    },
+    {
+      "after": "2026-10-16T21:05:00Z",
+      "before": "2026-10-16T21:25:00Z",
       "cause": "NON_VERIFICATO"
     }
   ],
