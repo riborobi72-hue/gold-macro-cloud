@@ -97,7 +97,7 @@ def collect(stream):
             if not box or box['width'] < 300:
                 raise RuntimeError('CHART_GEOMETRY_UNAVAILABLE')
             # Coordinates derive from the actual chart bounds, not a hidden chart model.
-            for x in range(int(box['x']+box['width']-75), int(box['x']+25), -3):
+            for x in range(int(box['x']+box['width']-3), int(box['x']+25), -3):
                 if page.get_by_role('button', name='Join for free', exact=True).is_visible():
                     raise RuntimeError('ORDINARY_LOGIN_REQUIRED')
                 if page.get_by_text('Verify you are human', exact=False).is_visible():
