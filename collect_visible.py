@@ -11,6 +11,7 @@ from datetime import datetime, timezone, timedelta
 from decimal import Decimal
 from email.utils import parsedate_to_datetime
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / 'data'
@@ -55,7 +56,10 @@ def parse_visible(raw, captured):
     return [t.strftime('%Y-%m-%dT%H:%M:%SZ'), *prices]
 
 
-def collect():
+def collect(stream):
+    global OUTPUT, URL
+    OUTPUT=ROOT/stream.get('transportDirectory','data/'+stream['symbol'])
+    URL='https://www.tradingview.com/chart/?symbol='+quote(stream['providerSymbol'],safe='')+'&interval=5'
     from playwright.sync_api import sync_playwright
     OUTPUT.mkdir(exist_ok=True)
     health_path=OUTPUT/'health.json'
@@ -88,7 +92,7 @@ def collect():
             page.get_by_role('tab', name='Data window', exact=True).click()
             grid = page.get_by_role('treegrid')
             grid.wait_for(state='visible')
-            chart = page.get_by_label('Chart for TVC:DXY, 5 minutes', exact=True)
+            chart = page.get_by_label('Chart for '+stream['providerSymbol']+', 5 minutes', exact=True)
             box = chart.bounding_box()
             if not box or box['width'] < 300:
                 raise RuntimeError('CHART_GEOMETRY_UNAVAILABLE')
@@ -140,7 +144,7 @@ def collect():
     rows = sorted(merged.values())[-1500:]  # transport overlap cache, not archival retention
     gaps = [{'after':a[0],'before':b[0],'cause':'NON_VERIFICATO'} for a,b in zip(rows,rows[1:])
             if datetime.fromisoformat(b[0]) - datetime.fromisoformat(a[0]) != timedelta(minutes=5)]
-    result = {'source':'TradingView','providerSymbol':'TVC:DXY','symbol':'DXY','timeframe':'5min',
+    result = {'source':stream['source'],'providerSymbol':stream['providerSymbol'],'symbol':stream['symbol'],'timeframe':stream['timeframe'],
               'capturedAt':datetime.now(timezone.utc).isoformat(),'closureGraceSeconds':60,
               'method':'visible_data_window','instrumentNature':'NON_VERIFICATO; UI previously Index Cfd',
               'execution':{'event':os.getenv('GITHUB_EVENT_NAME','local'),'runId':os.getenv('GITHUB_RUN_ID')},
@@ -154,4 +158,9 @@ def collect():
 
 
 if __name__ == '__main__':
-    collect()
+    config=json.loads((ROOT/'instruments.json').read_text())
+    for stream in config['streams']:
+        if stream.get('enabled') and stream['adapter']=='publicCloudFeed':
+            if stream['timeframe']!='5min':
+                raise ValueError('TIMEFRAME_NOT_IMPLEMENTED')
+            collect(stream)
