@@ -49,8 +49,10 @@ def collect():
         context = browser.new_context(viewport={'width':1280,'height':900}, locale='en-US', timezone_id='UTC')
         page = context.new_page()
         page.set_default_timeout(15000)
-        page.goto(URL, wait_until='domcontentloaded', timeout=45000)
         try:
+            response = page.goto(URL, wait_until='domcontentloaded', timeout=45000)
+            if response and response.status in (401,403,429):
+                raise RuntimeError('HTTP_ACCESS_OR_RATE_LIMIT_'+str(response.status))
             reject = page.get_by_role('button', name="Don't allow", exact=True)
             if reject.is_visible():
                 reject.click()
@@ -84,6 +86,10 @@ def collect():
                     observed[row[0]] = row
             if len(observed) < 12:
                 raise RuntimeError('LESS_THAN_TWELVE_VALID_CLOSED_BARS')
+            tail = sorted(observed)[-12:]
+            if any(datetime.fromisoformat(b)-datetime.fromisoformat(a)!=timedelta(minutes=5)
+                   for a,b in zip(tail,tail[1:])):
+                raise RuntimeError('LATEST_TWELVE_BARS_NOT_CONSECUTIVE')
             newest = max(observed)
             if datetime.now(timezone.utc) - datetime.fromisoformat(newest.replace('Z','+00:00')) > timedelta(hours=3):
                 raise RuntimeError('STALE_FEED_OR_MARKET_CLOSED_NEEDS_CLASSIFICATION')
