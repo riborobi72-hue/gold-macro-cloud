@@ -47,7 +47,7 @@ def parse_visible(raw, captured):
         raise ValueError('OFF_GRID')
     if t + timedelta(minutes=6) > captured:
         return None
-    prices = [value(k) for k in ['Open', 'High', 'Low', 'Close']]
+    prices = [value(k).removesuffix('%').strip() for k in ['Open', 'High', 'Low', 'Close']]
     if not all(re.fullmatch(r'\d+(?:\.\d+)?', p) for p in prices):
         raise ValueError('PRICE_FORMAT')
     o, h, l, c = [Decimal(p) for p in prices]
@@ -119,12 +119,12 @@ def collect(stream):
             if len(observed) < 12:
                 raise RuntimeError('LESS_THAN_TWELVE_VALID_CLOSED_BARS')
             tail = sorted(observed)[-12:]
-            if any(datetime.fromisoformat(b)-datetime.fromisoformat(a)!=timedelta(minutes=5)
+            if not stream.get('allowSessionGaps') and any(datetime.fromisoformat(b)-datetime.fromisoformat(a)!=timedelta(minutes=5)
                    for a,b in zip(tail,tail[1:])):
                 raise RuntimeError('LATEST_TWELVE_BARS_NOT_CONSECUTIVE')
             newest = max(observed)
-            if datetime.now(timezone.utc) - datetime.fromisoformat(newest.replace('Z','+00:00')) > timedelta(hours=3):
-                raise RuntimeError('STALE_FEED_OR_MARKET_CLOSED_NEEDS_CLASSIFICATION')
+            stale=datetime.now(timezone.utc) - datetime.fromisoformat(newest.replace('Z','+00:00')) > timedelta(hours=3)
+            market_status='CLOSED_DISPLAYED' if page.get_by_text('Market closed',exact=True).count() and page.get_by_text('Market closed',exact=True).first.is_visible() else 'NON_VERIFICATO'
             page.screenshot(path=str(OUTPUT/'success.png'))
         except Exception:
             page.screenshot(path=str(OUTPUT/'failure.png'))
@@ -146,21 +146,32 @@ def collect(stream):
             if datetime.fromisoformat(b[0]) - datetime.fromisoformat(a[0]) != timedelta(minutes=5)]
     result = {'source':stream['source'],'providerSymbol':stream['providerSymbol'],'symbol':stream['symbol'],'timeframe':stream['timeframe'],
               'capturedAt':datetime.now(timezone.utc).isoformat(),'closureGraceSeconds':60,
-              'method':'visible_data_window','instrumentNature':'NON_VERIFICATO; UI previously Index Cfd',
+              'method':'visible_data_window','instrumentNature':stream.get('instrumentNature','NON_VERIFICATO'),
+              'valueUnit':stream.get('valueUnit','NON_VERIFICATO'),'marketStatus':market_status,'freshBars':not stale,
               'execution':{'event':os.getenv('GITHUB_EVENT_NAME','local'),'runId':os.getenv('GITHUB_RUN_ID')},
               'rows':rows,'observedClosedBars':len(observed),'gaps':gaps,'revisions':revisions}
     tmp = OUTPUT/'latest.pending.json'
     tmp.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     tmp.replace(dest)
-    health_record('OK',lastBarUTC=rows[-1][0],runId=os.getenv('GITHUB_RUN_ID'))
+    health_record('NO_RECENT_BARS_MARKET_STATE_UNVERIFIED' if stale else 'OK',lastBarUTC=rows[-1][0],runId=os.getenv('GITHUB_RUN_ID'),marketStatus=market_status)
     print(json.dumps({'observed':len(observed),'first':rows[0][0],'last':rows[-1][0],
                       'sha256':hashlib.sha256(dest.read_bytes()).hexdigest()}))
 
 
 if __name__ == '__main__':
     config=json.loads((ROOT/'instruments.json').read_text())
+    failures=[]
     for stream in config['streams']:
         if stream.get('enabled') and stream['adapter']=='publicCloudFeed':
             if stream['timeframe']!='5min':
                 raise ValueError('TIMEFRAME_NOT_IMPLEMENTED')
-            collect(stream)
+            try:
+                collect(stream)
+            except Exception as exc:
+                hp=OUTPUT/'health.json';health=json.loads(hp.read_text()) if hp.exists() else {}
+                if health.get('state') not in ('ACCESS_BLOCKED','RATE_LIMIT'):
+                    health_record('ERROR_PREVIOUS_FEED_PRESERVED',errorType=type(exc).__name__)
+                failures.append(stream['symbol'])
+                print(json.dumps({'symbol':stream['symbol'],'state':'FAILED_PREVIOUS_DATA_PRESERVED','error':str(exc)[:150]}))
+    if failures:
+        raise RuntimeError('FAILED_STREAMS_'+','.join(failures))
