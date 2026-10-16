@@ -9,11 +9,26 @@ import os
 import re
 from datetime import datetime, timezone, timedelta
 from decimal import Decimal
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / 'data'
 URL = 'https://www.tradingview.com/chart/?symbol=TVC%3ADXY&interval=5'
+
+
+def health_record(state, **extra):
+    OUTPUT.mkdir(exist_ok=True)
+    value={'state':state,'utc':datetime.now(timezone.utc).isoformat(),**extra}
+    (OUTPUT/'health.json').write_text(json.dumps(value,indent=2)+'\n',encoding='utf-8')
+
+
+def retry_seconds(value, now):
+    try:
+        seconds=int(value) if str(value).isdigit() else int((parsedate_to_datetime(value)-now).total_seconds())
+        return max(3600,seconds)
+    except (ValueError,TypeError,OverflowError):
+        return 3600
 
 
 def parse_visible(raw, captured):
@@ -43,6 +58,13 @@ def parse_visible(raw, captured):
 def collect():
     from playwright.sync_api import sync_playwright
     OUTPUT.mkdir(exist_ok=True)
+    health_path=OUTPUT/'health.json'
+    health=json.loads(health_path.read_text()) if health_path.exists() else {}
+    if health.get('state')=='ACCESS_BLOCKED':
+        raise RuntimeError('ACCESS_BLOCKED_REQUIRES_ORDINARY_OPERATOR_INTERVENTION')
+    if health.get('nextAllowedUTC') and datetime.fromisoformat(health['nextAllowedUTC'])>datetime.now(timezone.utc):
+        print('Provider Retry-After active; no network request made.')
+        return
     raw_samples, observed = [], {}
     with sync_playwright() as p:
         browser = p.chromium.launch()
@@ -52,6 +74,12 @@ def collect():
         try:
             response = page.goto(URL, wait_until='domcontentloaded', timeout=45000)
             if response and response.status in (401,403,429):
+                if response.status==429:
+                    now=datetime.now(timezone.utc)
+                    wait=retry_seconds(response.headers.get('retry-after',''),now)
+                    health_record('RATE_LIMIT',nextAllowedUTC=(now+timedelta(seconds=wait)).isoformat())
+                else:
+                    health_record('ACCESS_BLOCKED',httpStatus=response.status)
                 raise RuntimeError('HTTP_ACCESS_OR_RATE_LIMIT_'+str(response.status))
             reject = page.get_by_role('button', name="Don't allow", exact=True)
             if reject.is_visible():
@@ -120,6 +148,7 @@ def collect():
     tmp = OUTPUT/'latest.pending.json'
     tmp.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     tmp.replace(dest)
+    health_record('OK',lastBarUTC=rows[-1][0],runId=os.getenv('GITHUB_RUN_ID'))
     print(json.dumps({'observed':len(observed),'first':rows[0][0],'last':rows[-1][0],
                       'sha256':hashlib.sha256(dest.read_bytes()).hexdigest()}))
 
