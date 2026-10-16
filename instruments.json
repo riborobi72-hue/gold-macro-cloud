@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "closureGraceSeconds": 60,
+  "streams": [
+    {"source":"TwelveData","symbol":"XAUUSD","providerSymbol":"XAU/USD","timeframe":"5min","adapter":"existingAnnual","enabled":true},
+    {"source":"TradingView","symbol":"DXY","providerSymbol":"TVC:DXY","timeframe":"5min","adapter":"publicCloudFeed","transportDirectory":"data","enabled":true}
+  ]
+}
