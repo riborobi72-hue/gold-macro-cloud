@@ -1,4 +1,4 @@
-name: DXY M5 visible chart
+name: GOLD MACRO TradingView M5
 on:
   workflow_dispatch:
 permissions:
@@ -9,7 +9,7 @@ concurrency:
 jobs:
   capture:
     runs-on: ubuntu-24.04
-    timeout-minutes: 3
+    timeout-minutes: 6
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -23,15 +23,14 @@ jobs:
         run: |
           git config user.name 'gold-macro-collector'
           git config user.email 'collector@users.noreply.github.com'
-          if [ -f data/latest.json ]; then git add data/latest.json; fi
-          if [ -f data/health.json ]; then git add data/health.json; fi
-          git diff --staged --quiet || git commit -m 'Update closed DXY M5 observations'
+          find data -type f \( -name latest.json -o -name health.json \) -print0 | xargs -0 -r git add --
+          git diff --staged --quiet || git commit -m 'Update closed TradingView M5 observations'
           git push
       - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: capture-evidence
           path: |
-            data/*.png
-            data/observations.json
+            data/**/*.png
+            data/**/observations.json
           retention-days: 7
