@@ -3,6 +3,8 @@
   "closureGraceSeconds": 60,
   "streams": [
     {"source":"TwelveData","symbol":"XAUUSD","providerSymbol":"XAU/USD","timeframe":"5min","adapter":"existingAnnual","enabled":true},
-    {"source":"TradingView","symbol":"DXY","providerSymbol":"TVC:DXY","timeframe":"5min","adapter":"publicCloudFeed","transportDirectory":"data","enabled":true}
+    {"source":"TradingView","symbol":"DXY","providerSymbol":"TVC:DXY","timeframe":"5min","adapter":"publicCloudFeed","transportDirectory":"data","enabled":true,"instrumentNature":"TradingView TVC Dollar Index; ICE equivalence NON_VERIFICATO","valueUnit":"index_points"},
+    {"source":"TradingView","symbol":"US10Y","providerSymbol":"TVC:US10Y","timeframe":"5min","adapter":"publicCloudFeed","transportDirectory":"data/US10Y","enabled":true,"instrumentNature":"US Government Bonds 10 YR Yield","valueUnit":"percent","allowSessionGaps":true},
+    {"source":"TradingView","symbol":"US02Y","providerSymbol":"TVC:US02Y","timeframe":"5min","adapter":"publicCloudFeed","transportDirectory":"data/US02Y","enabled":true,"instrumentNature":"US Government Bonds 2 YR Yield","valueUnit":"percent","allowSessionGaps":true}
   ]
 }
