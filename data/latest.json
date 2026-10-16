@@ -3,13 +3,13 @@
   "providerSymbol": "TVC:DXY",
   "symbol": "DXY",
   "timeframe": "5min",
-  "capturedAt": "2026-10-16T06:58:47.132964+00:00",
+  "capturedAt": "2026-10-16T07:12:59.670237+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "instrumentNature": "NON_VERIFICATO; UI previously Index Cfd",
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "38864234336"
+    "runId": "38865697674"
   },
   "rows": [
     [
@@ -886,6 +886,27 @@
       "101.851",
       "101.820",
       "101.845"
+    ],
+    [
+      "2026-10-16T06:50:00Z",
+      "101.845",
+      "101.855",
+      "101.833",
+      "101.848"
+    ],
+    [
+      "2026-10-16T06:55:00Z",
+      "101.849",
+      "101.868",
+      "101.849",
+      "101.850"
+    ],
+    [
+      "2026-10-16T07:00:00Z",
+      "101.854",
+      "101.854",
+      "101.816",
+      "101.826"
     ]
   ],
   "observedClosedBars": 119,
