@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:US10Y",
   "symbol": "US10Y",
   "timeframe": "5min",
-  "capturedAt": "2026-10-17T09:13:47.487343+00:00",
+  "capturedAt": "2026-10-17T10:13:49.095306+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "instrumentNature": "US Government Bonds 10 YR Yield",
@@ -12,7 +12,7 @@
   "freshBars": false,
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39020242343"
+    "runId": "39024016280"
   },
   "rows": [
     [
