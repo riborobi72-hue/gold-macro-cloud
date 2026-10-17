@@ -1,7 +1,7 @@
 {
-  "state": "OK",
-  "utc": "2026-10-17T00:13:48.316072+00:00",
+  "state": "NO_RECENT_BARS_MARKET_STATE_UNVERIFIED",
+  "utc": "2026-10-17T01:13:48.742630+00:00",
   "lastBarUTC": "2026-10-16T21:25:00Z",
-  "runId": "38985286231",
+  "runId": "38989862702",
   "marketStatus": "NON_VERIFICATO"
 }

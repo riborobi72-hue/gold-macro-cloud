@@ -3,16 +3,16 @@
   "providerSymbol": "TVC:DXY",
   "symbol": "DXY",
   "timeframe": "5min",
-  "capturedAt": "2026-10-17T00:13:22.715442+00:00",
+  "capturedAt": "2026-10-17T01:13:24.099902+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "instrumentNature": "TradingView TVC Dollar Index; ICE equivalence NON_VERIFICATO",
   "valueUnit": "index_points",
   "marketStatus": "NON_VERIFICATO",
-  "freshBars": true,
+  "freshBars": false,
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "38985286231"
+    "runId": "38989862702"
   },
   "rows": [
     [
