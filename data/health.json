@@ -1,7 +1,5 @@
 {
-  "state": "NO_RECENT_BARS_MARKET_STATE_UNVERIFIED",
-  "utc": "2026-10-18T21:13:35.845307+00:00",
-  "lastBarUTC": "2026-10-16T21:45:00Z",
-  "runId": "39166798095",
-  "marketStatus": "NON_VERIFICATO"
+  "state": "ERROR_PREVIOUS_FEED_PRESERVED",
+  "utc": "2026-10-18T22:13:28.600883+00:00",
+  "errorType": "RuntimeError"
 }
