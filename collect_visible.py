@@ -58,121 +58,16 @@ def parse_visible(raw, captured):
 
 
 def collect(stream):
-    global OUTPUT, URL
-    OUTPUT=ROOT/stream.get('transportDirectory','data/'+stream['symbol'])
-    URL='https://www.tradingview.com/chart/?symbol='+quote(stream['providerSymbol'],safe='')+'&interval=5'
-    from playwright.sync_api import sync_playwright
-    OUTPUT.mkdir(exist_ok=True)
-    health_path=OUTPUT/'health.json'
-    health=json.loads(health_path.read_text()) if health_path.exists() else {}
-    if health.get('state')=='ACCESS_BLOCKED':
-        raise RuntimeError('ACCESS_BLOCKED_REQUIRES_ORDINARY_OPERATOR_INTERVENTION')
-    if health.get('nextAllowedUTC') and datetime.fromisoformat(health['nextAllowedUTC'])>datetime.now(timezone.utc):
-        print('Provider Retry-After active; no network request made.')
-        return
-    raw_samples, observed = [], {}
-    with sync_playwright() as p:
-        browser = p.chromium.launch()
-        context = browser.new_context(viewport={'width':1280,'height':900}, locale='en-US', timezone_id='UTC')
-        page = context.new_page()
-        page.set_default_timeout(15000)
-        try:
-            response = page.goto(URL, wait_until='domcontentloaded', timeout=45000)
-            if response and response.status in (401,403,429):
-                if response.status==429:
-                    now=datetime.now(timezone.utc)
-                    wait=retry_seconds(response.headers.get('retry-after',''),now)
-                    health_record('RATE_LIMIT',nextAllowedUTC=(now+timedelta(seconds=wait)).isoformat())
-                else:
-                    health_record('ACCESS_BLOCKED',httpStatus=response.status)
-                raise RuntimeError('HTTP_ACCESS_OR_RATE_LIMIT_'+str(response.status))
-            reject = page.get_by_role('button', name="Don't allow", exact=True)
-            if reject.is_visible():
-                reject.click()
-            page.get_by_role('button', name='Object tree and data window', exact=True).click()
-            page.get_by_role('tab', name='Data window', exact=True).click()
-            grid = page.get_by_role('treegrid')
-            grid.wait_for(state='visible')
-            chart = page.get_by_label('Chart for '+stream['providerSymbol']+', 5 minutes', exact=True)
-            box = chart.bounding_box()
-            if not box or box['width'] < 300:
-                raise RuntimeError('CHART_GEOMETRY_UNAVAILABLE')
-            # Coordinates derive from the actual chart bounds, not a hidden chart model.
-            for x in range(int(box['x']+box['width']-3), int(box['x']+25), -3):
-                if page.get_by_role('button', name='Join for free', exact=True).is_visible():
-                    raise RuntimeError('ORDINARY_LOGIN_REQUIRED')
-                if page.get_by_text('Verify you are human', exact=False).is_visible():
-                    raise RuntimeError('HUMAN_VERIFICATION_REQUIRED')
-                page.mouse.move(x, box['y']+box['height']*0.65)
-                page.wait_for_timeout(60)  # animation/crosshair settlement, bounded per run
-                raw = grid.inner_text()
-                captured = datetime.now(timezone.utc)
-                raw_samples.append({'capturedAt':captured.isoformat(), 'x':x, 'raw':raw})
-                try:
-                    row = parse_visible(raw, captured)
-                except (ValueError, IndexError):
-                    continue
-                if row:
-                    existing = observed.get(row[0])
-                    if existing and existing != row:
-                        raise RuntimeError('INTRA_RUN_REVISION')
-                    observed[row[0]] = row
-            if len(observed) < 12:
-                raise RuntimeError('LESS_THAN_TWELVE_VALID_CLOSED_BARS')
-            tail = sorted(observed)[-12:]
-            if not stream.get('allowSessionGaps') and any(datetime.fromisoformat(b)-datetime.fromisoformat(a)!=timedelta(minutes=5)
-                   for a,b in zip(tail,tail[1:])):
-                raise RuntimeError('LATEST_TWELVE_BARS_NOT_CONSECUTIVE')
-            newest = max(observed)
-            stale=datetime.now(timezone.utc) - datetime.fromisoformat(newest.replace('Z','+00:00')) > timedelta(hours=3)
-            market_status='CLOSED_DISPLAYED' if page.get_by_text('Market closed',exact=True).count() and page.get_by_text('Market closed',exact=True).first.is_visible() else 'NON_VERIFICATO'
-            page.screenshot(path=str(OUTPUT/'success.png'))
-        except Exception:
-            page.screenshot(path=str(OUTPUT/'failure.png'))
-            raise
-        finally:
-            (OUTPUT/'observations.json').write_text(json.dumps(raw_samples,indent=2)+'\n',encoding='utf-8')
-            browser.close()
-    dest = OUTPUT/'latest.json'
-    prior = json.loads(dest.read_text()) if dest.exists() else {'rows':[]}
-    merged = {r[0]:r for r in prior['rows']}
-    revisions = []
-    for t, row in observed.items():
-        if t in merged and merged[t] != row:
-            revisions.append({'timestamp':t,'retained':merged[t],'observed':row})
-        else:
-            merged[t] = row
-    rows = sorted(merged.values())[-1500:]  # transport overlap cache, not archival retention
-    gaps = [{'after':a[0],'before':b[0],'cause':'NON_VERIFICATO'} for a,b in zip(rows,rows[1:])
-            if datetime.fromisoformat(b[0]) - datetime.fromisoformat(a[0]) != timedelta(minutes=5)]
-    result = {'source':stream['source'],'providerSymbol':stream['providerSymbol'],'symbol':stream['symbol'],'timeframe':stream['timeframe'],
-              'capturedAt':datetime.now(timezone.utc).isoformat(),'closureGraceSeconds':60,
-              'method':'visible_data_window','instrumentNature':stream.get('instrumentNature','NON_VERIFICATO'),
-              'valueUnit':stream.get('valueUnit','NON_VERIFICATO'),'marketStatus':market_status,'freshBars':not stale,
-              'execution':{'event':os.getenv('GITHUB_EVENT_NAME','local'),'runId':os.getenv('GITHUB_RUN_ID')},
-              'rows':rows,'observedClosedBars':len(observed),'gaps':gaps,'revisions':revisions}
-    tmp = OUTPUT/'latest.pending.json'
-    tmp.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
-    tmp.replace(dest)
-    health_record('NO_RECENT_BARS_MARKET_STATE_UNVERIFIED' if stale else 'OK',lastBarUTC=rows[-1][0],runId=os.getenv('GITHUB_RUN_ID'),marketStatus=market_status)
-    print(json.dumps({'symbol':stream['symbol'],'observed':len(observed),'first':rows[0][0],'last':rows[-1][0],
-                      'sha256':hashlib.sha256(dest.read_bytes()).hexdigest()}))
+    from collector_core import safe_collect
+    return safe_collect(stream,parse_visible,retry_seconds)
 
 
 if __name__ == '__main__':
+    from concurrent.futures import ThreadPoolExecutor
     config=json.loads((ROOT/'instruments.json').read_text())
-    failures=[]
-    for stream in config['streams']:
-        if stream.get('enabled') and stream['adapter']=='publicCloudFeed':
-            if stream['timeframe']!='5min':
-                raise ValueError('TIMEFRAME_NOT_IMPLEMENTED')
-            try:
-                collect(stream)
-            except Exception as exc:
-                hp=OUTPUT/'health.json';health=json.loads(hp.read_text()) if hp.exists() else {}
-                if health.get('state') not in ('ACCESS_BLOCKED','RATE_LIMIT'):
-                    health_record('ERROR_PREVIOUS_FEED_PRESERVED',errorType=type(exc).__name__)
-                failures.append(stream['symbol'])
-                print(json.dumps({'symbol':stream['symbol'],'state':'FAILED_PREVIOUS_DATA_PRESERVED','error':str(exc)[:150]}))
-    if failures:
-        raise RuntimeError('FAILED_STREAMS_'+','.join(failures))
+    streams=[s for s in config['streams'] if s.get('enabled') and s['adapter']=='publicCloudFeed']
+    if any(s['timeframe']!='5min' for s in streams):raise ValueError('TIMEFRAME_NOT_IMPLEMENTED')
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        results=list(pool.map(collect,streams))
+    failed=[r['symbol'] for r in results if r['state'] in ('FAILED_PREVIOUS_DATA_PRESERVED','ACCESS_BLOCKED')]
+    if failed:raise RuntimeError('FAILED_STREAMS_'+','.join(failed))
