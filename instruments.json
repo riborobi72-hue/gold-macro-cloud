@@ -16,9 +16,19 @@
       "referenceMarket": "OTC spot",
       "calendar": {
         "type": "unverified",
-        "timezone": "UTC"
+        "timezone": "UTC",
+        "sourceUrls": [],
+        "engine": "NON_VERIFICATO"
       },
-      "allowSessionGaps": true
+      "allowSessionGaps": true,
+      "runtimeAuthority": {
+        "file": "GOLD_MACRO/unified_manifest.json",
+        "key": "streams.XAUUSD",
+        "fields": [
+          "last",
+          "rows"
+        ]
+      }
     },
     {
       "source": "TradingView",
@@ -36,9 +46,20 @@
       "referenceMarket": "TradingView TVC",
       "calendar": {
         "type": "unverified",
-        "timezone": "America/New_York"
+        "timezone": "America/New_York",
+        "sourceUrls": [],
+        "engine": "NON_VERIFICATO"
       },
-      "allowSessionGaps": true
+      "allowSessionGaps": true,
+      "runtimeAuthority": {
+        "file": "GOLD_MACRO/unified_manifest.json",
+        "key": "streams.DXY",
+        "fields": [
+          "last",
+          "rows"
+        ]
+      },
+      "runtimeHealthFile": "data/health.json"
     },
     {
       "source": "TradingView",
@@ -57,8 +78,19 @@
       "referenceMarket": "Refinitiv / TradingView TVC",
       "calendar": {
         "type": "unverified",
-        "timezone": "America/New_York"
-      }
+        "timezone": "America/New_York",
+        "sourceUrls": [],
+        "engine": "NON_VERIFICATO"
+      },
+      "runtimeAuthority": {
+        "file": "GOLD_MACRO/unified_manifest.json",
+        "key": "streams.US10Y",
+        "fields": [
+          "last",
+          "rows"
+        ]
+      },
+      "runtimeHealthFile": "data/US10Y/health.json"
     },
     {
       "source": "TradingView",
@@ -77,8 +109,19 @@
       "referenceMarket": "Refinitiv / TradingView TVC",
       "calendar": {
         "type": "unverified",
-        "timezone": "America/New_York"
-      }
+        "timezone": "America/New_York",
+        "sourceUrls": [],
+        "engine": "NON_VERIFICATO"
+      },
+      "runtimeAuthority": {
+        "file": "GOLD_MACRO/unified_manifest.json",
+        "key": "streams.US02Y",
+        "fields": [
+          "last",
+          "rows"
+        ]
+      },
+      "runtimeHealthFile": "data/US02Y/health.json"
     },
     {
       "id": "WTI",
@@ -98,10 +141,24 @@
       "calendar": {
         "type": "unverified",
         "id": null,
-        "timezone": "America/New_York"
+        "timezone": "America/New_York",
+        "sourceUrls": [],
+        "engine": "NON_VERIFICATO"
       },
       "historyRequestDays": 365,
-      "historyTargetBars": 5000
+      "historyTargetBars": 5000,
+      "runtimeAuthority": {
+        "file": "GOLD_MACRO/unified_manifest.json",
+        "key": "streams.WTI",
+        "fields": [
+          "last",
+          "rows"
+        ]
+      },
+      "runtimeHealthFile": "data/WTI/health.json",
+      "maxTransportBars": 6000,
+      "historyMaxPages": 55,
+      "historyTimeBudgetSeconds": 420
     },
     {
       "id": "BRENT",
@@ -121,10 +178,24 @@
       "calendar": {
         "type": "unverified",
         "id": null,
-        "timezone": "Europe/London"
+        "timezone": "Europe/London",
+        "sourceUrls": [],
+        "engine": "NON_VERIFICATO"
       },
       "historyRequestDays": 365,
-      "historyTargetBars": 5000
+      "historyTargetBars": 5000,
+      "runtimeAuthority": {
+        "file": "GOLD_MACRO/unified_manifest.json",
+        "key": "streams.BRENT",
+        "fields": [
+          "last",
+          "rows"
+        ]
+      },
+      "runtimeHealthFile": "data/BRENT/health.json",
+      "maxTransportBars": 6000,
+      "historyMaxPages": 55,
+      "historyTimeBudgetSeconds": 420
     },
     {
       "id": "SPX",
@@ -144,10 +215,27 @@
       "calendar": {
         "type": "exchange_calendars",
         "id": "XNYS",
-        "timezone": "America/New_York"
+        "timezone": "America/New_York",
+        "sourceUrls": [
+          "https://www.nyse.com/markets/hours-calendars"
+        ],
+        "engine": "exchange_calendars==4.13.2"
       },
       "historyRequestDays": 365,
-      "historyTargetBars": 5000
+      "historyTargetBars": 5000,
+      "runtimeAuthority": {
+        "file": "GOLD_MACRO/unified_manifest.json",
+        "key": "streams.SPX",
+        "fields": [
+          "last",
+          "rows"
+        ]
+      },
+      "runtimeHealthFile": "data/SPX/health.json",
+      "maxTransportBars": 6000,
+      "historyMaxPages": 55,
+      "historyTimeBudgetSeconds": 420,
+      "declaredDelayMinutes": 10
     },
     {
       "id": "NDX",
@@ -167,10 +255,26 @@
       "calendar": {
         "type": "exchange_calendars",
         "id": "XNYS",
-        "timezone": "America/New_York"
+        "timezone": "America/New_York",
+        "sourceUrls": [
+          "https://www.nyse.com/markets/hours-calendars"
+        ],
+        "engine": "exchange_calendars==4.13.2"
       },
       "historyRequestDays": 365,
-      "historyTargetBars": 5000
+      "historyTargetBars": 5000,
+      "runtimeAuthority": {
+        "file": "GOLD_MACRO/unified_manifest.json",
+        "key": "streams.NDX",
+        "fields": [
+          "last",
+          "rows"
+        ]
+      },
+      "runtimeHealthFile": "data/NDX/health.json",
+      "maxTransportBars": 6000,
+      "historyMaxPages": 55,
+      "historyTimeBudgetSeconds": 420
     },
     {
       "id": "NI225",
@@ -190,10 +294,27 @@
       "calendar": {
         "type": "exchange_calendars",
         "id": "XTKS",
-        "timezone": "Asia/Tokyo"
+        "timezone": "Asia/Tokyo",
+        "sourceUrls": [
+          "https://www.jpx.co.jp/english/equities/trading/domestic/01.html",
+          "https://www.jpx.co.jp/english/corporate/about-jpx/calendar/"
+        ],
+        "engine": "exchange_calendars==4.13.2"
       },
       "historyRequestDays": 365,
-      "historyTargetBars": 5000
+      "historyTargetBars": 5000,
+      "runtimeAuthority": {
+        "file": "GOLD_MACRO/unified_manifest.json",
+        "key": "streams.NI225",
+        "fields": [
+          "last",
+          "rows"
+        ]
+      },
+      "runtimeHealthFile": "data/NI225/health.json",
+      "maxTransportBars": 6000,
+      "historyMaxPages": 55,
+      "historyTimeBudgetSeconds": 420
     },
     {
       "id": "HSTECH",
@@ -213,10 +334,26 @@
       "calendar": {
         "type": "exchange_calendars",
         "id": "XHKG",
-        "timezone": "Asia/Hong_Kong"
+        "timezone": "Asia/Hong_Kong",
+        "sourceUrls": [
+          "https://www.hkex.com.hk/Services/Trading-hours-and-Severe-Weather-Arrangements/Trading-Hours/Securities-Market?sc_lang=en"
+        ],
+        "engine": "exchange_calendars==4.13.2"
       },
       "historyRequestDays": 365,
-      "historyTargetBars": 5000
+      "historyTargetBars": 5000,
+      "runtimeAuthority": {
+        "file": "GOLD_MACRO/unified_manifest.json",
+        "key": "streams.HSTECH",
+        "fields": [
+          "last",
+          "rows"
+        ]
+      },
+      "runtimeHealthFile": "data/HSTECH/health.json",
+      "maxTransportBars": 6000,
+      "historyMaxPages": 55,
+      "historyTimeBudgetSeconds": 420
     },
     {
       "id": "TAIEX",
@@ -236,10 +373,27 @@
       "calendar": {
         "type": "exchange_calendars",
         "id": "XTAI",
-        "timezone": "Asia/Taipei"
+        "timezone": "Asia/Taipei",
+        "sourceUrls": [
+          "https://www.twse.com.tw/en/products/system/trading.html",
+          "https://www.twse.com.tw/en/trading/holiday.html"
+        ],
+        "engine": "exchange_calendars==4.13.2"
       },
       "historyRequestDays": 365,
-      "historyTargetBars": 5000
+      "historyTargetBars": 5000,
+      "runtimeAuthority": {
+        "file": "GOLD_MACRO/unified_manifest.json",
+        "key": "streams.TAIEX",
+        "fields": [
+          "last",
+          "rows"
+        ]
+      },
+      "runtimeHealthFile": "data/TAIEX/health.json",
+      "maxTransportBars": 6000,
+      "historyMaxPages": 55,
+      "historyTimeBudgetSeconds": 420
     }
   ]
 }
