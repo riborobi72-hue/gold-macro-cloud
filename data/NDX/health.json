@@ -1,6 +1,6 @@
 {
   "state": "ERROR_PREVIOUS_FEED_PRESERVED",
-  "utc": "2026-10-20T18:14:16.142947+00:00",
+  "utc": "2026-10-20T19:14:17.663961+00:00",
   "errorType": "RuntimeError",
   "reason": "INTRA_RUN_REVISION",
   "lastBarUTC": null
