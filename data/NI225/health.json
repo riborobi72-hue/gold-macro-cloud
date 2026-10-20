@@ -1,7 +1,16 @@
 {
-  "state": "NO_RECENT_BARS_MARKET_STATE_UNVERIFIED",
-  "utc": "2026-10-20T15:48:03.857952+00:00",
+  "state": "ACCESS_BLOCKED",
+  "utc": "2026-10-20T16:20:13.741584+00:00",
+  "reason": "ORDINARY_LOGIN_REQUIRED",
   "lastBarUTC": "2026-10-20T06:30:00Z",
-  "runId": "39451189349",
-  "marketStatus": "NON_VERIFICATO"
+  "history": {
+    "requestedDays": 365,
+    "planIntradayBarLimit": 5000,
+    "targetBars": 5000,
+    "availableCapturedBars": 1308,
+    "scannedPagesThisRun": 22,
+    "boundary": "ORDINARY_LOGIN_REQUIRED",
+    "completed": true,
+    "firstUTC": "2026-08-31T02:20:00Z"
+  }
 }
