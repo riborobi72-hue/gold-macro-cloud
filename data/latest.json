@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:DXY",
   "symbol": "DXY",
   "timeframe": "5min",
-  "capturedAt": "2026-10-20T22:13:20.383269+00:00",
+  "capturedAt": "2026-10-20T23:13:33.708143+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "instrumentNature": "TradingView TVC Dollar Index; ICE equivalence NON_VERIFICATO",
@@ -21,8 +21,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-20T22:05:00Z",
-    "ageMinutes": 8.34,
+    "lastBarUTC": "2026-10-20T22:50:00Z",
+    "ageMinutes": 23.56,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -31,7 +31,7 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39506384799"
+    "runId": "39513467111"
   },
   "rows": [
     [
@@ -6144,9 +6144,72 @@
       "101.730",
       "101.707",
       "101.729"
+    ],
+    [
+      "2026-10-20T22:10:00Z",
+      "101.716",
+      "101.730",
+      "101.707",
+      "101.729"
+    ],
+    [
+      "2026-10-20T22:15:00Z",
+      "101.716",
+      "101.730",
+      "101.707",
+      "101.729"
+    ],
+    [
+      "2026-10-20T22:20:00Z",
+      "101.716",
+      "101.730",
+      "101.707",
+      "101.729"
+    ],
+    [
+      "2026-10-20T22:25:00Z",
+      "101.716",
+      "101.730",
+      "101.707",
+      "101.729"
+    ],
+    [
+      "2026-10-20T22:30:00Z",
+      "101.716",
+      "101.730",
+      "101.707",
+      "101.729"
+    ],
+    [
+      "2026-10-20T22:35:00Z",
+      "101.716",
+      "101.730",
+      "101.707",
+      "101.729"
+    ],
+    [
+      "2026-10-20T22:40:00Z",
+      "101.716",
+      "101.730",
+      "101.707",
+      "101.729"
+    ],
+    [
+      "2026-10-20T22:45:00Z",
+      "101.716",
+      "101.730",
+      "101.707",
+      "101.729"
+    ],
+    [
+      "2026-10-20T22:50:00Z",
+      "101.716",
+      "101.730",
+      "101.707",
+      "101.729"
     ]
   ],
-  "observedClosedBars": 122,
+  "observedClosedBars": 131,
   "gaps": [
     {
       "after": "2026-10-15T22:00:00Z",
