@@ -48,8 +48,9 @@ def parse_visible(raw, captured):
     if t + timedelta(minutes=6) > captured:
         return None
     prices = [value(k).removesuffix('%').strip() for k in ['Open', 'High', 'Low', 'Close']]
-    if not all(re.fullmatch(r'\d+(?:\.\d+)?', p) for p in prices):
+    if not all(re.fullmatch(r'(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?', p) for p in prices):
         raise ValueError('PRICE_FORMAT')
+    prices=[p.replace(',','') for p in prices]
     o, h, l, c = [Decimal(p) for p in prices]
     if not all(p.is_finite() and p > 0 for p in (o,h,l,c)) or not l <= min(o,c) <= max(o,c) <= h:
         raise ValueError('OHLC_INVALID')
@@ -154,7 +155,7 @@ def collect(stream):
     tmp.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     tmp.replace(dest)
     health_record('NO_RECENT_BARS_MARKET_STATE_UNVERIFIED' if stale else 'OK',lastBarUTC=rows[-1][0],runId=os.getenv('GITHUB_RUN_ID'),marketStatus=market_status)
-    print(json.dumps({'observed':len(observed),'first':rows[0][0],'last':rows[-1][0],
+    print(json.dumps({'symbol':stream['symbol'],'observed':len(observed),'first':rows[0][0],'last':rows[-1][0],
                       'sha256':hashlib.sha256(dest.read_bytes()).hexdigest()}))
 
 
