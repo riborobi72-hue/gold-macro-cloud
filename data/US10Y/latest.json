@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:US10Y",
   "symbol": "US10Y",
   "timeframe": "5min",
-  "capturedAt": "2026-10-20T21:13:29.706428+00:00",
+  "capturedAt": "2026-10-20T22:13:20.549780+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "instrumentNature": "US Government Bonds 10 YR Yield",
@@ -21,8 +21,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-20T21:05:00Z",
-    "ageMinutes": 8.5,
+    "lastBarUTC": "2026-10-20T21:25:00Z",
+    "ageMinutes": 48.34,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -31,7 +31,7 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39498472277"
+    "runId": "39506384799"
   },
   "rows": [
     [
@@ -5276,6 +5276,13 @@
       "5.111",
       "5.111",
       "5.111"
+    ],
+    [
+      "2026-10-20T21:25:00Z",
+      "5.111",
+      "5.111",
+      "5.111",
+      "5.111"
     ]
   ],
   "observedClosedBars": 122,
@@ -5367,6 +5374,19 @@
       "unknownSessionSlots": 1,
       "sessionCounts": {
         "UNVERIFIED_SESSION": 1
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-20T21:05:00Z",
+      "before": "2026-10-20T21:25:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 3,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 3
       },
       "missingExpectedTimestamps": [],
       "cause": "UNVERIFIED_SESSION"
