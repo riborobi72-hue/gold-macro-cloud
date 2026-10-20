@@ -2,9 +2,244 @@
   "schema": 1,
   "closureGraceSeconds": 60,
   "streams": [
-    {"source":"TwelveData","symbol":"XAUUSD","providerSymbol":"XAU/USD","timeframe":"5min","adapter":"existingAnnual","enabled":true},
-    {"source":"TradingView","symbol":"DXY","providerSymbol":"TVC:DXY","timeframe":"5min","adapter":"publicCloudFeed","transportDirectory":"data","enabled":true,"instrumentNature":"TradingView TVC Dollar Index; ICE equivalence NON_VERIFICATO","valueUnit":"index_points"},
-    {"source":"TradingView","symbol":"US10Y","providerSymbol":"TVC:US10Y","timeframe":"5min","adapter":"publicCloudFeed","transportDirectory":"data/US10Y","enabled":true,"instrumentNature":"US Government Bonds 10 YR Yield","valueUnit":"percent","allowSessionGaps":true},
-    {"source":"TradingView","symbol":"US02Y","providerSymbol":"TVC:US02Y","timeframe":"5min","adapter":"publicCloudFeed","transportDirectory":"data/US02Y","enabled":true,"instrumentNature":"US Government Bonds 2 YR Yield","valueUnit":"percent","allowSessionGaps":true}
+    {
+      "source": "TwelveData",
+      "symbol": "XAUUSD",
+      "providerSymbol": "XAU/USD",
+      "timeframe": "5min",
+      "adapter": "existingAnnual",
+      "enabled": true,
+      "id": "XAUUSD",
+      "name": "Gold spot",
+      "category": "precious_metal",
+      "valueUnit": "USD_per_troy_ounce",
+      "referenceMarket": "OTC spot",
+      "calendar": {
+        "type": "unverified",
+        "timezone": "UTC"
+      },
+      "allowSessionGaps": true
+    },
+    {
+      "source": "TradingView",
+      "symbol": "DXY",
+      "providerSymbol": "TVC:DXY",
+      "timeframe": "5min",
+      "adapter": "publicCloudFeed",
+      "transportDirectory": "data",
+      "enabled": true,
+      "instrumentNature": "TradingView TVC Dollar Index; ICE equivalence NON_VERIFICATO",
+      "valueUnit": "index_points",
+      "id": "DXY",
+      "name": "US Dollar Index",
+      "category": "currency_index_reference",
+      "referenceMarket": "TradingView TVC",
+      "calendar": {
+        "type": "unverified",
+        "timezone": "America/New_York"
+      },
+      "allowSessionGaps": true
+    },
+    {
+      "source": "TradingView",
+      "symbol": "US10Y",
+      "providerSymbol": "TVC:US10Y",
+      "timeframe": "5min",
+      "adapter": "publicCloudFeed",
+      "transportDirectory": "data/US10Y",
+      "enabled": true,
+      "instrumentNature": "US Government Bonds 10 YR Yield",
+      "valueUnit": "percent",
+      "allowSessionGaps": true,
+      "id": "US10Y",
+      "name": "US Treasury 10Y yield",
+      "category": "government_bond_yield",
+      "referenceMarket": "Refinitiv / TradingView TVC",
+      "calendar": {
+        "type": "unverified",
+        "timezone": "America/New_York"
+      }
+    },
+    {
+      "source": "TradingView",
+      "symbol": "US02Y",
+      "providerSymbol": "TVC:US02Y",
+      "timeframe": "5min",
+      "adapter": "publicCloudFeed",
+      "transportDirectory": "data/US02Y",
+      "enabled": true,
+      "instrumentNature": "US Government Bonds 2 YR Yield",
+      "valueUnit": "percent",
+      "allowSessionGaps": true,
+      "id": "US02Y",
+      "name": "US Treasury 2Y yield",
+      "category": "government_bond_yield",
+      "referenceMarket": "Refinitiv / TradingView TVC",
+      "calendar": {
+        "type": "unverified",
+        "timezone": "America/New_York"
+      }
+    },
+    {
+      "id": "WTI",
+      "name": "WTI crude oil CFD",
+      "source": "TradingView",
+      "symbol": "WTI",
+      "providerSymbol": "TVC:USOIL",
+      "category": "commodity_cfd",
+      "timeframe": "5min",
+      "adapter": "publicCloudFeed",
+      "transportDirectory": "data/WTI",
+      "enabled": true,
+      "valueUnit": "USD_per_barrel",
+      "referenceMarket": "TVC calculated CFD referencing WTI; not NYMEX futures",
+      "instrumentNature": "TVC calculated CFD referencing WTI; not NYMEX futures",
+      "allowSessionGaps": true,
+      "calendar": {
+        "type": "unverified",
+        "id": null,
+        "timezone": "America/New_York"
+      },
+      "historyRequestDays": 365,
+      "historyTargetBars": 5000
+    },
+    {
+      "id": "BRENT",
+      "name": "Brent crude oil CFD",
+      "source": "TradingView",
+      "symbol": "BRENT",
+      "providerSymbol": "TVC:UKOIL",
+      "category": "commodity_cfd",
+      "timeframe": "5min",
+      "adapter": "publicCloudFeed",
+      "transportDirectory": "data/BRENT",
+      "enabled": true,
+      "valueUnit": "USD_per_barrel",
+      "referenceMarket": "TVC calculated CFD referencing Brent; not ICE futures",
+      "instrumentNature": "TVC calculated CFD referencing Brent; not ICE futures",
+      "allowSessionGaps": true,
+      "calendar": {
+        "type": "unverified",
+        "id": null,
+        "timezone": "Europe/London"
+      },
+      "historyRequestDays": 365,
+      "historyTargetBars": 5000
+    },
+    {
+      "id": "SPX",
+      "name": "S&P 500",
+      "source": "TradingView",
+      "symbol": "SPX",
+      "providerSymbol": "SP:SPX",
+      "category": "equity_index",
+      "timeframe": "5min",
+      "adapter": "publicCloudFeed",
+      "transportDirectory": "data/SPX",
+      "enabled": true,
+      "valueUnit": "index_points",
+      "referenceMarket": "S&P Dow Jones Indices / US cash equities",
+      "instrumentNature": "S&P Dow Jones Indices / US cash equities",
+      "allowSessionGaps": true,
+      "calendar": {
+        "type": "exchange_calendars",
+        "id": "XNYS",
+        "timezone": "America/New_York"
+      },
+      "historyRequestDays": 365,
+      "historyTargetBars": 5000
+    },
+    {
+      "id": "NDX",
+      "name": "Nasdaq 100",
+      "source": "TradingView",
+      "symbol": "NDX",
+      "providerSymbol": "NASDAQ:NDX",
+      "category": "equity_index",
+      "timeframe": "5min",
+      "adapter": "publicCloudFeed",
+      "transportDirectory": "data/NDX",
+      "enabled": true,
+      "valueUnit": "index_points",
+      "referenceMarket": "Nasdaq / US cash equities",
+      "instrumentNature": "Nasdaq / US cash equities",
+      "allowSessionGaps": true,
+      "calendar": {
+        "type": "exchange_calendars",
+        "id": "XNYS",
+        "timezone": "America/New_York"
+      },
+      "historyRequestDays": 365,
+      "historyTargetBars": 5000
+    },
+    {
+      "id": "NI225",
+      "name": "Nikkei 225 reference",
+      "source": "TradingView",
+      "symbol": "NI225",
+      "providerSymbol": "TVC:NI225",
+      "category": "equity_index_reference",
+      "timeframe": "5min",
+      "adapter": "publicCloudFeed",
+      "transportDirectory": "data/NI225",
+      "enabled": true,
+      "valueUnit": "index_points",
+      "referenceMarket": "TradingView Japan 225 reference; official Nikkei feed equivalence unverified",
+      "instrumentNature": "TradingView Japan 225 reference; official Nikkei feed equivalence unverified",
+      "allowSessionGaps": true,
+      "calendar": {
+        "type": "exchange_calendars",
+        "id": "XTKS",
+        "timezone": "Asia/Tokyo"
+      },
+      "historyRequestDays": 365,
+      "historyTargetBars": 5000
+    },
+    {
+      "id": "HSTECH",
+      "name": "Hang Seng TECH",
+      "source": "TradingView",
+      "symbol": "HSTECH",
+      "providerSymbol": "HSI:HSTECH",
+      "category": "equity_index",
+      "timeframe": "5min",
+      "adapter": "publicCloudFeed",
+      "transportDirectory": "data/HSTECH",
+      "enabled": true,
+      "valueUnit": "index_points",
+      "referenceMarket": "Hang Seng Indexes / Hong Kong cash equities",
+      "instrumentNature": "Hang Seng Indexes / Hong Kong cash equities",
+      "allowSessionGaps": true,
+      "calendar": {
+        "type": "exchange_calendars",
+        "id": "XHKG",
+        "timezone": "Asia/Hong_Kong"
+      },
+      "historyRequestDays": 365,
+      "historyTargetBars": 5000
+    },
+    {
+      "id": "TAIEX",
+      "name": "Taiwan Weighted",
+      "source": "TradingView",
+      "symbol": "TAIEX",
+      "providerSymbol": "TWSE:IX0001",
+      "category": "equity_index",
+      "timeframe": "5min",
+      "adapter": "publicCloudFeed",
+      "transportDirectory": "data/TAIEX",
+      "enabled": true,
+      "valueUnit": "index_points",
+      "referenceMarket": "Taiwan Stock Exchange capitalisation weighted index",
+      "instrumentNature": "Taiwan Stock Exchange capitalisation weighted index",
+      "allowSessionGaps": true,
+      "calendar": {
+        "type": "exchange_calendars",
+        "id": "XTAI",
+        "timezone": "Asia/Taipei"
+      },
+      "historyRequestDays": 365,
+      "historyTargetBars": 5000
+    }
   ]
 }
