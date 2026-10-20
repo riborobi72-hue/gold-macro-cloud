@@ -1,7 +1,16 @@
 {
-  "state": "ERROR_PREVIOUS_FEED_PRESERVED",
-  "utc": "2026-10-20T20:14:02.558963+00:00",
-  "errorType": "RuntimeError",
-  "reason": "INTRA_RUN_REVISION",
-  "lastBarUTC": null
+  "state": "ACCESS_BLOCKED",
+  "utc": "2026-10-20T21:18:34.557395+00:00",
+  "reason": "ORDINARY_LOGIN_REQUIRED",
+  "lastBarUTC": "2026-10-20T20:05:00Z",
+  "history": {
+    "requestedDays": 365,
+    "planIntradayBarLimit": 5000,
+    "targetBars": 5000,
+    "availableCapturedBars": 1243,
+    "scannedPagesThisRun": 21,
+    "boundary": "ORDINARY_LOGIN_REQUIRED",
+    "completed": true,
+    "firstUTC": "2026-09-15T16:45:00Z"
+  }
 }
