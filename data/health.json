@@ -1,5 +1,7 @@
 {
-  "state": "ERROR_PREVIOUS_FEED_PRESERVED",
-  "utc": "2026-10-20T00:13:25.649388+00:00",
-  "errorType": "RuntimeError"
+  "state": "OK",
+  "utc": "2026-10-20T01:13:26.371888+00:00",
+  "lastBarUTC": "2026-10-20T01:05:00Z",
+  "runId": "39352134019",
+  "marketStatus": "NON_VERIFICATO"
 }
