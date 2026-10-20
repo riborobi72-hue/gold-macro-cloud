@@ -9,7 +9,7 @@ concurrency:
 jobs:
   capture:
     runs-on: ubuntu-24.04
-    timeout-minutes: 6
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-python@v7
@@ -17,7 +17,7 @@ jobs:
           python-version: '3.13'
       - run: pip install playwright==1.56.0
       - run: python -m playwright install --with-deps chromium
-      - run: python collect_visible.py
+      - run: python -u collect_visible.py
       - name: Publish only market data
         if: always()
         run: |
