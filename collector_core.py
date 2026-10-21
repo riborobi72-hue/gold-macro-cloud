@@ -9,6 +9,20 @@ from private_session import load_private_session,may_resume_authenticated,public
 ROOT=Path(__file__).resolve().parent
 UTC=timezone.utc
 
+def recent_collection_allowed(previous):
+    """A historical-depth stop does not establish a restriction on recent bars.
+
+    Only the recorded multi-page bootstrap case qualifies. A gate encountered
+    during recent collection, an HTTP refusal or a CAPTCHA remains latched.
+    """
+    h=previous.get('history',{})
+    return (previous.get('state')=='ACCESS_BLOCKED'
+            and previous.get('reason')=='ORDINARY_LOGIN_REQUIRED'
+            and h.get('boundary')=='ORDINARY_LOGIN_REQUIRED'
+            and h.get('scannedPagesThisRun',0)>1
+            and previous.get('httpStatus') is None
+            and previous.get('scope')!='RECENT')
+
 def health(directory,state,**extra):
     directory.mkdir(exist_ok=True,parents=True)
     value={'state':state,'utc':datetime.now(UTC).isoformat(),**extra}
@@ -38,14 +52,16 @@ def collect_stream(stream,parse_visible,retry_seconds):
     output=ROOT/stream.get('transportDirectory','data/'+stream['symbol']);output.mkdir(exist_ok=True,parents=True)
     hp=output/'health.json';old_health=json.loads(hp.read_text()) if hp.exists() else {}
     private=load_private_session() if stream.get('historyTargetBars',0) else None
-    if not may_resume_authenticated(old_health,private):raise RuntimeError('ACCESS_BLOCKED_REQUIRES_OPERATOR')
+    if not may_resume_authenticated(old_health,private) and not recent_collection_allowed(old_health):raise RuntimeError('ACCESS_BLOCKED_REQUIRES_OPERATOR')
     if old_health.get('nextAllowedUTC') and datetime.fromisoformat(old_health['nextAllowedUTC'])>datetime.now(UTC):
         return {'symbol':stream['symbol'],'state':'RATE_LIMIT_BACKOFF'}
     dest=output/'latest.json';prior=json.loads(dest.read_text()) if dest.exists() else {'rows':[]}
     history=dict(prior.get('history',{}));target=int(stream.get('historyTargetBars',0))
     first_authenticated=bool(private and old_health.get('authState')!='VERIFIED')
     if private and history.get('boundary')=='ORDINARY_LOGIN_REQUIRED':history['completed']=False
-    bootstrap=target>0 and not history.get('completed') and not first_authenticated
+    # Hourly collection never launches a deep-history scan. History requires
+    # an explicit maintenance run and must not suspend the recent-bar service.
+    bootstrap=os.getenv('TV_HISTORY_MAINTENANCE')=='1' and target>0 and not history.get('completed') and not first_authenticated
     max_pages=int(stream.get('historyMaxPages',55)) if bootstrap else int(stream.get('recoveryMaxPages',8))
     deadline=time.monotonic()+int(stream.get('historyTimeBudgetSeconds',420))
     raw_samples=[];observed={};pages=0;boundary=None;displayed=None;delayed=False;market='NON_VERIFICATO';blocked=None
@@ -154,7 +170,7 @@ def collect_stream(stream,parse_visible,retry_seconds):
         history={'requestedDays':stream.get('historyRequestDays',365),'planIntradayBarLimit':5000,'targetBars':target,'availableCapturedBars':len(rows),'scannedPagesThisRun':pages,'boundary':boundary or 'PAGE_BUDGET_CONTINUE_NEXT_HOUR','completed':completed,'firstUTC':rows[0][0]}
     result={'source':stream['source'],'providerSymbol':stream['providerSymbol'],'symbol':stream['symbol'],'timeframe':stream['timeframe'],'capturedAt':captured.isoformat(),'closureGraceSeconds':60,'method':'visible_data_window','authState':'VERIFIED' if private else 'PUBLIC_VISIBLE','instrumentNature':stream.get('instrumentNature','NON_VERIFICATO'),'valueUnit':stream.get('valueUnit','NON_VERIFICATO'),'referenceMarket':stream.get('referenceMarket'),'calendar':stream.get('calendar'),'marketStatus':market,'displayedChartIdentity':displayed,'delayedDisplayed':delayed,'sessionHealth':session,'history':history,'execution':{'event':os.getenv('GITHUB_EVENT_NAME','local'),'runId':os.getenv('GITHUB_RUN_ID')},'rows':rows,'observedClosedBars':len(observed),'gaps':gap_records(rows,stream),'revisions':revisions}
     tmp=output/'latest.pending.json';tmp.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8');tmp.replace(dest)
-    if blocked:health(output,'ACCESS_BLOCKED',reason=blocked,lastBarUTC=rows[-1][0],history=history)
+    if blocked:health(output,'ACCESS_BLOCKED',reason=blocked,lastBarUTC=rows[-1][0],history=history,scope='HISTORY' if bootstrap else 'RECENT')
     else:health(output,session['state'],**{k:v for k,v in session.items() if k!='state'},authState='VERIFIED' if private else 'PUBLIC_VISIBLE',runId=os.getenv('GITHUB_RUN_ID'),marketStatus=market,history=history)
     summary={'symbol':stream['symbol'],'observed':len(observed),'rows':len(rows),'first':rows[0][0],'last':rows[-1][0],'history':history,'sha256':hashlib.sha256(dest.read_bytes()).hexdigest(),'state':'ACCESS_BLOCKED' if blocked else 'COLLECTED'}
     print(json.dumps(summary),flush=True)
@@ -169,7 +185,7 @@ def safe_collect(stream,parse_visible,retry_seconds):
         if stream.get('historyTargetBars',0) and os.getenv('TV_STORAGE_STATE_JSON') and not re.fullmatch(r'[A-Z][A-Z0-9_]{2,160}',reason):
             reason='PRIVATE_CAPTURE_ERROR_'+type(exc).__name__
         state='ACCESS_BLOCKED' if any(k in reason for k in ['LOGIN_REQUIRED','HUMAN_VERIFICATION','ACCESS_BLOCKED']) else 'ERROR_PREVIOUS_FEED_PRESERVED'
-        if old.get('state') not in ('ACCESS_BLOCKED','RATE_LIMIT'):
-            health(output,state,errorType=type(exc).__name__,reason=reason,lastBarUTC=old.get('lastBarUTC'))
+        if old.get('state') not in ('ACCESS_BLOCKED','RATE_LIMIT') or recent_collection_allowed(old):
+            health(output,state,errorType=type(exc).__name__,reason=reason,lastBarUTC=old.get('lastBarUTC'),scope='RECENT')
         result={'symbol':stream['symbol'],'state':'FAILED_PREVIOUS_DATA_PRESERVED','error':reason};print(json.dumps(result),flush=True);return result
 
