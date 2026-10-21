@@ -18,6 +18,8 @@ jobs:
       - run: pip install playwright==1.56.0 exchange_calendars==4.13.2 numpy==2.2.1 pandas==2.2.3
       - run: python -m playwright install --with-deps chromium
       - run: python -u collect_visible.py
+        env:
+          TV_STORAGE_STATE_JSON: ${{ secrets.TV_STORAGE_STATE_JSON }}
       - name: Publish only market data
         if: always()
         run: |
@@ -34,3 +36,4 @@ jobs:
             data/**/*.png
             data/**/observations.json
           retention-days: 2
+
