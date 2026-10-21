@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:DXY",
   "symbol": "DXY",
   "timeframe": "5min",
-  "capturedAt": "2026-10-20T23:13:33.708143+00:00",
+  "capturedAt": "2026-10-21T00:13:21.611485+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "instrumentNature": "TradingView TVC Dollar Index; ICE equivalence NON_VERIFICATO",
@@ -21,8 +21,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-20T22:50:00Z",
-    "ageMinutes": 23.56,
+    "lastBarUTC": "2026-10-21T00:05:00Z",
+    "ageMinutes": 8.36,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -31,7 +31,7 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39513467111"
+    "runId": "39519901195"
   },
   "rows": [
     [
@@ -6207,9 +6207,51 @@
       "101.730",
       "101.707",
       "101.729"
+    ],
+    [
+      "2026-10-20T23:30:00Z",
+      "101.778",
+      "101.778",
+      "101.778",
+      "101.778"
+    ],
+    [
+      "2026-10-20T23:45:00Z",
+      "101.784",
+      "101.787",
+      "101.779",
+      "101.787"
+    ],
+    [
+      "2026-10-20T23:50:00Z",
+      "101.786",
+      "101.796",
+      "101.784",
+      "101.795"
+    ],
+    [
+      "2026-10-20T23:55:00Z",
+      "101.796",
+      "101.796",
+      "101.787",
+      "101.794"
+    ],
+    [
+      "2026-10-21T00:00:00Z",
+      "101.793",
+      "101.796",
+      "101.772",
+      "101.776"
+    ],
+    [
+      "2026-10-21T00:05:00Z",
+      "101.778",
+      "101.786",
+      "101.771",
+      "101.785"
     ]
   ],
-  "observedClosedBars": 131,
+  "observedClosedBars": 120,
   "gaps": [
     {
       "after": "2026-10-15T22:00:00Z",
@@ -6259,6 +6301,32 @@
       "unknownSessionSlots": 10,
       "sessionCounts": {
         "UNVERIFIED_SESSION": 10
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-20T22:50:00Z",
+      "before": "2026-10-20T23:30:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 7,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 7
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-20T23:30:00Z",
+      "before": "2026-10-20T23:45:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 2,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 2
       },
       "missingExpectedTimestamps": [],
       "cause": "UNVERIFIED_SESSION"
