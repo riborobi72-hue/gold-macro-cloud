@@ -3,9 +3,10 @@
   "providerSymbol": "TVC:US02Y",
   "symbol": "US02Y",
   "timeframe": "5min",
-  "capturedAt": "2026-10-21T05:13:31.438086+00:00",
+  "capturedAt": "2026-10-21T06:13:47.619026+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
+  "authState": "PUBLIC_VISIBLE",
   "instrumentNature": "US Government Bonds 2 YR Yield",
   "valueUnit": "percent",
   "referenceMarket": "Refinitiv / TradingView TVC",
@@ -21,8 +22,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-21T05:05:00Z",
-    "ageMinutes": 8.52,
+    "lastBarUTC": "2026-10-21T06:05:00Z",
+    "ageMinutes": 8.79,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -31,7 +32,7 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39548250988"
+    "runId": "39554003719"
   },
   "rows": [
     [
@@ -5605,6 +5606,83 @@
       "4.789",
       "4.789",
       "4.789"
+    ],
+    [
+      "2026-10-21T05:10:00Z",
+      "4.787",
+      "4.787",
+      "4.787",
+      "4.787"
+    ],
+    [
+      "2026-10-21T05:20:00Z",
+      "4.789",
+      "4.789",
+      "4.789",
+      "4.789"
+    ],
+    [
+      "2026-10-21T05:25:00Z",
+      "4.789",
+      "4.791",
+      "4.789",
+      "4.791"
+    ],
+    [
+      "2026-10-21T05:30:00Z",
+      "4.793",
+      "4.793",
+      "4.791",
+      "4.791"
+    ],
+    [
+      "2026-10-21T05:35:00Z",
+      "4.793",
+      "4.793",
+      "4.791",
+      "4.791"
+    ],
+    [
+      "2026-10-21T05:40:00Z",
+      "4.793",
+      "4.793",
+      "4.793",
+      "4.793"
+    ],
+    [
+      "2026-10-21T05:45:00Z",
+      "4.795",
+      "4.795",
+      "4.795",
+      "4.795"
+    ],
+    [
+      "2026-10-21T05:50:00Z",
+      "4.795",
+      "4.795",
+      "4.795",
+      "4.795"
+    ],
+    [
+      "2026-10-21T05:55:00Z",
+      "4.795",
+      "4.795",
+      "4.793",
+      "4.793"
+    ],
+    [
+      "2026-10-21T06:00:00Z",
+      "4.795",
+      "4.795",
+      "4.793",
+      "4.793"
+    ],
+    [
+      "2026-10-21T06:05:00Z",
+      "4.793",
+      "4.793",
+      "4.793",
+      "4.793"
     ]
   ],
   "observedClosedBars": 121,
@@ -5937,6 +6015,19 @@
     {
       "after": "2026-10-21T03:35:00Z",
       "before": "2026-10-21T03:45:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 1,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 1
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-21T05:10:00Z",
+      "before": "2026-10-21T05:20:00Z",
       "classification": "UNVERIFIED_SESSION",
       "missingExpectedBars": 0,
       "regularClosedSlots": 0,
