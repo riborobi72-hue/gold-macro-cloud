@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:US02Y",
   "symbol": "US02Y",
   "timeframe": "5min",
-  "capturedAt": "2026-10-21T06:28:31.465221+00:00",
+  "capturedAt": "2026-10-21T06:36:06.093429+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -22,8 +22,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-21T06:20:00Z",
-    "ageMinutes": 8.52,
+    "lastBarUTC": "2026-10-21T06:25:00Z",
+    "ageMinutes": 11.1,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -32,7 +32,7 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39555471163"
+    "runId": "39556266905"
   },
   "rows": [
     [
@@ -5704,9 +5704,16 @@
       "4.795",
       "4.795",
       "4.795"
+    ],
+    [
+      "2026-10-21T06:25:00Z",
+      "4.795",
+      "4.795",
+      "4.793",
+      "4.793"
     ]
   ],
-  "observedClosedBars": 121,
+  "observedClosedBars": 120,
   "gaps": [
     {
       "after": "2026-10-16T05:15:00Z",

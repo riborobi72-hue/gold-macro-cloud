@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:UKOIL",
   "symbol": "BRENT",
   "timeframe": "5min",
-  "capturedAt": "2026-10-21T06:29:09.166479+00:00",
+  "capturedAt": "2026-10-21T06:36:26.622052+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -23,8 +23,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-21T06:20:00Z",
-    "ageMinutes": 9.15,
+    "lastBarUTC": "2026-10-21T06:30:00Z",
+    "ageMinutes": 6.44,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "Europe/London",
@@ -42,7 +42,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39555471163"
+    "runId": "39556266905"
   },
   "rows": [
     [
@@ -10257,9 +10257,23 @@
       "110.43",
       "110.32",
       "110.34"
+    ],
+    [
+      "2026-10-21T06:25:00Z",
+      "110.35",
+      "110.46",
+      "110.32",
+      "110.39"
+    ],
+    [
+      "2026-10-21T06:30:00Z",
+      "110.38",
+      "110.45",
+      "110.22",
+      "110.24"
     ]
   ],
-  "observedClosedBars": 182,
+  "observedClosedBars": 121,
   "gaps": [
     {
       "after": "2026-10-08T18:30:00Z",
