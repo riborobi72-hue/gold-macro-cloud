@@ -165,8 +165,11 @@ def safe_collect(stream,parse_visible,retry_seconds):
     try:return collect_stream(stream,parse_visible,retry_seconds)
     except Exception as exc:
         hp=output/'health.json';old=json.loads(hp.read_text()) if hp.exists() else {}
-        state='ACCESS_BLOCKED' if any(k in str(exc) for k in ['LOGIN_REQUIRED','HUMAN_VERIFICATION','ACCESS_BLOCKED']) else 'ERROR_PREVIOUS_FEED_PRESERVED'
+        reason=str(exc)[:180]
+        if stream.get('historyTargetBars',0) and os.getenv('TV_STORAGE_STATE_JSON') and not re.fullmatch(r'[A-Z][A-Z0-9_]{2,160}',reason):
+            reason='PRIVATE_CAPTURE_ERROR_'+type(exc).__name__
+        state='ACCESS_BLOCKED' if any(k in reason for k in ['LOGIN_REQUIRED','HUMAN_VERIFICATION','ACCESS_BLOCKED']) else 'ERROR_PREVIOUS_FEED_PRESERVED'
         if old.get('state') not in ('ACCESS_BLOCKED','RATE_LIMIT'):
-            health(output,state,errorType=type(exc).__name__,reason=str(exc)[:180],lastBarUTC=old.get('lastBarUTC'))
-        result={'symbol':stream['symbol'],'state':'FAILED_PREVIOUS_DATA_PRESERVED','error':str(exc)[:200]};print(json.dumps(result),flush=True);return result
+            health(output,state,errorType=type(exc).__name__,reason=reason,lastBarUTC=old.get('lastBarUTC'))
+        result={'symbol':stream['symbol'],'state':'FAILED_PREVIOUS_DATA_PRESERVED','error':reason};print(json.dumps(result),flush=True);return result
 
