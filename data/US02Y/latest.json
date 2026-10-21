@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:US02Y",
   "symbol": "US02Y",
   "timeframe": "5min",
-  "capturedAt": "2026-10-21T02:13:42.770792+00:00",
+  "capturedAt": "2026-10-21T03:13:54.522055+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "instrumentNature": "US Government Bonds 2 YR Yield",
@@ -21,8 +21,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-21T02:05:00Z",
-    "ageMinutes": 8.71,
+    "lastBarUTC": "2026-10-21T03:05:00Z",
+    "ageMinutes": 8.91,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -31,7 +31,7 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39531717086"
+    "runId": "39537294143"
   },
   "rows": [
     [
@@ -5381,6 +5381,83 @@
       "4.795",
       "4.793",
       "4.793"
+    ],
+    [
+      "2026-10-21T02:10:00Z",
+      "4.793",
+      "4.793",
+      "4.791",
+      "4.791"
+    ],
+    [
+      "2026-10-21T02:15:00Z",
+      "4.793",
+      "4.793",
+      "4.791",
+      "4.791"
+    ],
+    [
+      "2026-10-21T02:20:00Z",
+      "4.793",
+      "4.793",
+      "4.793",
+      "4.793"
+    ],
+    [
+      "2026-10-21T02:25:00Z",
+      "4.793",
+      "4.793",
+      "4.793",
+      "4.793"
+    ],
+    [
+      "2026-10-21T02:30:00Z",
+      "4.793",
+      "4.793",
+      "4.793",
+      "4.793"
+    ],
+    [
+      "2026-10-21T02:35:00Z",
+      "4.793",
+      "4.793",
+      "4.793",
+      "4.793"
+    ],
+    [
+      "2026-10-21T02:40:00Z",
+      "4.791",
+      "4.791",
+      "4.791",
+      "4.791"
+    ],
+    [
+      "2026-10-21T02:45:00Z",
+      "4.789",
+      "4.791",
+      "4.789",
+      "4.791"
+    ],
+    [
+      "2026-10-21T02:50:00Z",
+      "4.791",
+      "4.791",
+      "4.791",
+      "4.791"
+    ],
+    [
+      "2026-10-21T02:55:00Z",
+      "4.791",
+      "4.791",
+      "4.791",
+      "4.791"
+    ],
+    [
+      "2026-10-21T03:05:00Z",
+      "4.793",
+      "4.793",
+      "4.793",
+      "4.793"
     ]
   ],
   "observedClosedBars": 121,
@@ -5680,6 +5757,19 @@
       "unknownSessionSlots": 11,
       "sessionCounts": {
         "UNVERIFIED_SESSION": 11
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-21T02:55:00Z",
+      "before": "2026-10-21T03:05:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 1,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 1
       },
       "missingExpectedTimestamps": [],
       "cause": "UNVERIFIED_SESSION"
