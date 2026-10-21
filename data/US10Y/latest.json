@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:US10Y",
   "symbol": "US10Y",
   "timeframe": "5min",
-  "capturedAt": "2026-10-21T03:13:38.030930+00:00",
+  "capturedAt": "2026-10-21T04:13:31.343744+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "instrumentNature": "US Government Bonds 10 YR Yield",
@@ -21,8 +21,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-21T03:05:00Z",
-    "ageMinutes": 8.63,
+    "lastBarUTC": "2026-10-21T04:05:00Z",
+    "ageMinutes": 8.52,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -31,7 +31,7 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39537294143"
+    "runId": "39542760293"
   },
   "rows": [
     [
@@ -5556,6 +5556,69 @@
       "5.127",
       "5.127",
       "5.127"
+    ],
+    [
+      "2026-10-21T03:10:00Z",
+      "5.125",
+      "5.125",
+      "5.125",
+      "5.125"
+    ],
+    [
+      "2026-10-21T03:15:00Z",
+      "5.123",
+      "5.123",
+      "5.123",
+      "5.123"
+    ],
+    [
+      "2026-10-21T03:20:00Z",
+      "5.123",
+      "5.123",
+      "5.121",
+      "5.123"
+    ],
+    [
+      "2026-10-21T03:25:00Z",
+      "5.123",
+      "5.123",
+      "5.121",
+      "5.123"
+    ],
+    [
+      "2026-10-21T03:30:00Z",
+      "5.123",
+      "5.123",
+      "5.121",
+      "5.121"
+    ],
+    [
+      "2026-10-21T03:50:00Z",
+      "5.119",
+      "5.119",
+      "5.119",
+      "5.119"
+    ],
+    [
+      "2026-10-21T03:55:00Z",
+      "5.119",
+      "5.123",
+      "5.119",
+      "5.123"
+    ],
+    [
+      "2026-10-21T04:00:00Z",
+      "5.123",
+      "5.123",
+      "5.121",
+      "5.121"
+    ],
+    [
+      "2026-10-21T04:05:00Z",
+      "5.119",
+      "5.121",
+      "5.119",
+      "5.119"
     ]
   ],
   "observedClosedBars": 121,
@@ -5686,6 +5749,19 @@
       "unknownSessionSlots": 11,
       "sessionCounts": {
         "UNVERIFIED_SESSION": 11
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-21T03:30:00Z",
+      "before": "2026-10-21T03:50:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 3,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 3
       },
       "missingExpectedTimestamps": [],
       "cause": "UNVERIFIED_SESSION"
