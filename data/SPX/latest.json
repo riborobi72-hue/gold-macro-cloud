@@ -3,9 +3,10 @@
   "providerSymbol": "SP:SPX",
   "symbol": "SPX",
   "timeframe": "5min",
-  "capturedAt": "2026-10-20T21:18:32.587666+00:00",
+  "capturedAt": "2026-10-21T06:29:09.815032+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
+  "authState": "PUBLIC_VISIBLE",
   "instrumentNature": "S&P Dow Jones Indices / US cash equities",
   "valueUnit": "index_points",
   "referenceMarket": "S&P Dow Jones Indices / US cash equities",
@@ -25,7 +26,7 @@
     "state": "CLOSED_REGULAR",
     "sessionState": "OUTSIDE_SESSION",
     "lastBarUTC": "2026-10-20T20:05:00Z",
-    "ageMinutes": 73.54,
+    "ageMinutes": 624.16,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XNYS",
     "calendarTimezone": "America/New_York",
@@ -43,7 +44,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39498472277"
+    "runId": "39555471163"
   },
   "rows": [
     [
@@ -8748,7 +8749,7 @@
       "7712.57"
     ]
   ],
-  "observedClosedBars": 1243,
+  "observedClosedBars": 120,
   "gaps": [
     {
       "after": "2026-09-15T20:05:00Z",
