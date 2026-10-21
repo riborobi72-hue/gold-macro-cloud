@@ -4,6 +4,7 @@ from datetime import datetime,timezone,timedelta
 from pathlib import Path
 from urllib.parse import quote
 from session_rules import gap_records,session_health
+from private_session import load_private_session,may_resume_authenticated,public_ohlc_observation
 
 ROOT=Path(__file__).resolve().parent
 UTC=timezone.utc
@@ -36,18 +37,23 @@ def collect_stream(stream,parse_visible,retry_seconds):
     from playwright.sync_api import sync_playwright
     output=ROOT/stream.get('transportDirectory','data/'+stream['symbol']);output.mkdir(exist_ok=True,parents=True)
     hp=output/'health.json';old_health=json.loads(hp.read_text()) if hp.exists() else {}
-    if old_health.get('state')=='ACCESS_BLOCKED':raise RuntimeError('ACCESS_BLOCKED_REQUIRES_OPERATOR')
+    private=load_private_session() if stream.get('historyTargetBars',0) else None
+    if not may_resume_authenticated(old_health,private):raise RuntimeError('ACCESS_BLOCKED_REQUIRES_OPERATOR')
     if old_health.get('nextAllowedUTC') and datetime.fromisoformat(old_health['nextAllowedUTC'])>datetime.now(UTC):
         return {'symbol':stream['symbol'],'state':'RATE_LIMIT_BACKOFF'}
     dest=output/'latest.json';prior=json.loads(dest.read_text()) if dest.exists() else {'rows':[]}
     history=dict(prior.get('history',{}));target=int(stream.get('historyTargetBars',0))
-    bootstrap=target>0 and not history.get('completed')
-    max_pages=int(stream.get('historyMaxPages',55)) if bootstrap else 1
+    first_authenticated=bool(private and old_health.get('authState')!='VERIFIED')
+    if private and history.get('boundary')=='ORDINARY_LOGIN_REQUIRED':history['completed']=False
+    bootstrap=target>0 and not history.get('completed') and not first_authenticated
+    max_pages=int(stream.get('historyMaxPages',55)) if bootstrap else int(stream.get('recoveryMaxPages',8))
     deadline=time.monotonic()+int(stream.get('historyTimeBudgetSeconds',420))
     raw_samples=[];observed={};pages=0;boundary=None;displayed=None;delayed=False;market='NON_VERIFICATO';blocked=None
     with sync_playwright() as p:
         browser=p.chromium.launch()
-        context=browser.new_context(viewport={'width':1280,'height':900},locale='en-US',timezone_id='UTC')
+        options={'viewport':{'width':1280,'height':900},'locale':'en-US','timezone_id':'UTC'}
+        if private:options['storage_state']=private
+        context=browser.new_context(**options)
         page=context.new_page();page.set_default_timeout(15000)
         try:
             response=page.goto('https://www.tradingview.com/chart/?symbol='+quote(stream['providerSymbol'],safe='')+'&interval=5',wait_until='domcontentloaded',timeout=45000)
@@ -59,6 +65,9 @@ def collect_stream(stream,parse_visible,retry_seconds):
                 raise RuntimeError('HTTP_ACCESS_OR_RATE_LIMIT_'+str(response.status))
             reject=page.get_by_role('button',name="Don't allow",exact=True)
             if reject.is_visible():reject.click()
+            if private:
+                try:page.get_by_role('button',name=re.compile(r'^Logged in as ')).wait_for(state='visible',timeout=15000)
+                except Exception:raise RuntimeError('PRIVATE_SESSION_NOT_ACCEPTED_LOGIN_REQUIRED') from None
             page.get_by_role('button',name='Object tree and data window',exact=True).click()
             page.get_by_role('tab',name='Data window',exact=True).click()
             grid=page.get_by_role('treegrid');grid.wait_for(state='visible')
@@ -75,7 +84,7 @@ def collect_stream(stream,parse_visible,retry_seconds):
             if not box or box['width']<300:raise RuntimeError('CHART_GEOMETRY_UNAVAILABLE')
             delayed=page.get_by_role('button',name=re.compile('Data is delayed')).count()>0
             market='CLOSED_DISPLAYED' if page.get_by_text('Market closed',exact=True).count() and page.get_by_text('Market closed',exact=True).first.is_visible() else 'NON_VERIFICATO'
-            prior_min=min((r[0] for r in prior['rows']),default=None);no_progress=0;oldest=None
+            prior_min=min((r[0] for r in prior['rows']),default=None);prior_last=max((r[0] for r in prior['rows']),default=None);no_progress=0;oldest=None
             for page_index in range(max_pages):
                 access=gate(page)
                 if access:
@@ -86,7 +95,7 @@ def collect_stream(stream,parse_visible,retry_seconds):
                 # Skip already archived middle windows during continuation. The
                 # latest window is always read to recover new closed bars.
                 skip=False
-                if page_index and prior_min:
+                if bootstrap and page_index and prior_min:
                     page.mouse.move(box['x']+28,box['y']+box['height']*0.65);page.wait_for_timeout(50)
                     try:
                         edge=parse_visible(grid.inner_text(),datetime.now(UTC))
@@ -100,7 +109,7 @@ def collect_stream(stream,parse_visible,retry_seconds):
                             boundary=access;blocked=access if access!='HISTORY_PLAN_LIMIT' else None;break
                         page.mouse.move(x,box['y']+box['height']*0.65);page.wait_for_timeout(40)
                         raw=grid.inner_text();captured=datetime.now(UTC)
-                        raw_samples.append({'capturedAt':captured.isoformat(),'page':page_index,'x':x,'raw':raw})
+                        raw_samples.append({'capturedAt':captured.isoformat(),'page':page_index,'x':x,'raw':public_ohlc_observation(raw) if private else raw})
                         try:row=parse_visible(raw,captured)
                         except (ValueError,IndexError):continue
                         if row:
@@ -114,6 +123,8 @@ def collect_stream(stream,parse_visible,retry_seconds):
                     oldest=now_oldest
                     if no_progress>=2:boundary='NO_EARLIER_VISIBLE_BARS';break
                 combined={r[0] for r in prior['rows']}|set(observed)
+                if not bootstrap and prior_last and len(observed)>=12 and min(observed)<=prior_last:
+                    boundary='INCREMENTAL_OVERLAP_REACHED';break
                 if bootstrap and len(combined)>=target:boundary='BASIC_BAR_TARGET_REACHED';break
                 if time.monotonic()>deadline:boundary='TIME_BUDGET_CONTINUE_NEXT_HOUR';break
                 if page_index+1<max_pages:
@@ -121,10 +132,11 @@ def collect_stream(stream,parse_visible,retry_seconds):
                     page.mouse.move(box['x']+45,y);page.mouse.down()
                     page.mouse.move(box['x']+box['width']-40,y,steps=12);page.mouse.up();page.wait_for_timeout(250)
             if len(observed)<12:raise RuntimeError('LESS_THAN_TWELVE_VALID_CLOSED_BARS')
-            page.screenshot(path=str(output/'success.png'))
+            if not private:page.screenshot(path=str(output/'success.png'))
             (output/'chart_identity.json').write_text(json.dumps({'requested':stream['providerSymbol'],'displayed':displayed,'title':page.title(),'delayedDisplayed':delayed},indent=2)+'\n')
         except Exception:
-            page.screenshot(path=str(output/'failure.png'));raise
+            if not private:page.screenshot(path=str(output/'failure.png'))
+            raise
         finally:
             (output/'observations.json').write_text(json.dumps(raw_samples,indent=2)+'\n',encoding='utf-8')
             browser.close()
@@ -134,13 +146,16 @@ def collect_stream(stream,parse_visible,retry_seconds):
         else:merged[t]=row
     rows=sorted(merged.values())[-int(stream.get('maxTransportBars',1500)):]
     captured=datetime.now(UTC);session=session_health(rows,stream,captured)
-    if bootstrap:
+    if first_authenticated:
+        history={**history,'completed':False,'boundary':'AUTHENTICATED_INCREMENTAL_PROOF_BEFORE_HISTORY',
+                 'availableCapturedBars':len(rows),'firstUTC':rows[0][0]}
+    elif bootstrap:
         completed=boundary not in ('TIME_BUDGET_CONTINUE_NEXT_HOUR',None)
         history={'requestedDays':stream.get('historyRequestDays',365),'planIntradayBarLimit':5000,'targetBars':target,'availableCapturedBars':len(rows),'scannedPagesThisRun':pages,'boundary':boundary or 'PAGE_BUDGET_CONTINUE_NEXT_HOUR','completed':completed,'firstUTC':rows[0][0]}
-    result={'source':stream['source'],'providerSymbol':stream['providerSymbol'],'symbol':stream['symbol'],'timeframe':stream['timeframe'],'capturedAt':captured.isoformat(),'closureGraceSeconds':60,'method':'visible_data_window','instrumentNature':stream.get('instrumentNature','NON_VERIFICATO'),'valueUnit':stream.get('valueUnit','NON_VERIFICATO'),'referenceMarket':stream.get('referenceMarket'),'calendar':stream.get('calendar'),'marketStatus':market,'displayedChartIdentity':displayed,'delayedDisplayed':delayed,'sessionHealth':session,'history':history,'execution':{'event':os.getenv('GITHUB_EVENT_NAME','local'),'runId':os.getenv('GITHUB_RUN_ID')},'rows':rows,'observedClosedBars':len(observed),'gaps':gap_records(rows,stream),'revisions':revisions}
+    result={'source':stream['source'],'providerSymbol':stream['providerSymbol'],'symbol':stream['symbol'],'timeframe':stream['timeframe'],'capturedAt':captured.isoformat(),'closureGraceSeconds':60,'method':'visible_data_window','authState':'VERIFIED' if private else 'PUBLIC_VISIBLE','instrumentNature':stream.get('instrumentNature','NON_VERIFICATO'),'valueUnit':stream.get('valueUnit','NON_VERIFICATO'),'referenceMarket':stream.get('referenceMarket'),'calendar':stream.get('calendar'),'marketStatus':market,'displayedChartIdentity':displayed,'delayedDisplayed':delayed,'sessionHealth':session,'history':history,'execution':{'event':os.getenv('GITHUB_EVENT_NAME','local'),'runId':os.getenv('GITHUB_RUN_ID')},'rows':rows,'observedClosedBars':len(observed),'gaps':gap_records(rows,stream),'revisions':revisions}
     tmp=output/'latest.pending.json';tmp.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8');tmp.replace(dest)
     if blocked:health(output,'ACCESS_BLOCKED',reason=blocked,lastBarUTC=rows[-1][0],history=history)
-    else:health(output,session['state'],**{k:v for k,v in session.items() if k!='state'},runId=os.getenv('GITHUB_RUN_ID'),marketStatus=market,history=history)
+    else:health(output,session['state'],**{k:v for k,v in session.items() if k!='state'},authState='VERIFIED' if private else 'PUBLIC_VISIBLE',runId=os.getenv('GITHUB_RUN_ID'),marketStatus=market,history=history)
     summary={'symbol':stream['symbol'],'observed':len(observed),'rows':len(rows),'first':rows[0][0],'last':rows[-1][0],'history':history,'sha256':hashlib.sha256(dest.read_bytes()).hexdigest(),'state':'ACCESS_BLOCKED' if blocked else 'COLLECTED'}
     print(json.dumps(summary),flush=True)
     return summary
@@ -154,3 +169,4 @@ def safe_collect(stream,parse_visible,retry_seconds):
         if old.get('state') not in ('ACCESS_BLOCKED','RATE_LIMIT'):
             health(output,state,errorType=type(exc).__name__,reason=str(exc)[:180],lastBarUTC=old.get('lastBarUTC'))
         result={'symbol':stream['symbol'],'state':'FAILED_PREVIOUS_DATA_PRESERVED','error':str(exc)[:200]};print(json.dumps(result),flush=True);return result
+
