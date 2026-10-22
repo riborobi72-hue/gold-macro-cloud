@@ -3,7 +3,7 @@
   "providerSymbol": "TWSE:IX0001",
   "symbol": "TAIEX",
   "timeframe": "5min",
-  "capturedAt": "2026-10-22T09:15:01.372286+00:00",
+  "capturedAt": "2026-10-22T10:15:37.235854+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -27,7 +27,7 @@
     "state": "CLOSED_REGULAR",
     "sessionState": "OUTSIDE_SESSION",
     "lastBarUTC": "2026-10-22T05:20:00Z",
-    "ageMinutes": 235.02,
+    "ageMinutes": 295.62,
     "minutesBehindExpectedSessionBar": 5.0,
     "calendarId": "XTAI",
     "calendarTimezone": "Asia/Taipei",
@@ -45,7 +45,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39753622696"
+    "runId": "39761349419"
   },
   "rows": [
     [
@@ -12038,9 +12038,9 @@
       "observed": [
         "2026-10-22T01:55:00Z",
         "46894.50",
-        "46944.19",
+        "46943.10",
         "46889.13",
-        "46915.20"
+        "46943.10"
       ]
     },
     {
@@ -12075,40 +12075,6 @@
         "47332.18",
         "46942.75",
         "47246.78"
-      ]
-    },
-    {
-      "timestamp": "2026-10-21T04:55:00Z",
-      "retained": [
-        "2026-10-21T04:55:00Z",
-        "46716.37",
-        "46761.12",
-        "46707.26",
-        "46761.12"
-      ],
-      "observed": [
-        "2026-10-21T04:55:00Z",
-        "46716.37",
-        "46761.12",
-        "46707.24",
-        "46752.46"
-      ]
-    },
-    {
-      "timestamp": "2026-10-20T04:55:00Z",
-      "retained": [
-        "2026-10-20T04:55:00Z",
-        "46356.25",
-        "46356.25",
-        "46303.01",
-        "46303.01"
-      ],
-      "observed": [
-        "2026-10-20T04:55:00Z",
-        "46356.25",
-        "46356.25",
-        "46283.27",
-        "46290.29"
       ]
     }
   ]
