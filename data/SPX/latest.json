@@ -3,7 +3,7 @@
   "providerSymbol": "SP:SPX",
   "symbol": "SPX",
   "timeframe": "5min",
-  "capturedAt": "2026-10-22T20:14:12.102990+00:00",
+  "capturedAt": "2026-10-22T21:14:39.400757+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -26,7 +26,7 @@
     "state": "CLOSED_REGULAR",
     "sessionState": "OUTSIDE_SESSION",
     "lastBarUTC": "2026-10-22T20:05:00Z",
-    "ageMinutes": 9.2,
+    "ageMinutes": 69.66,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XNYS",
     "calendarTimezone": "America/New_York",
@@ -44,7 +44,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39846816976"
+    "runId": "39855344414"
   },
   "rows": [
     [
@@ -9869,7 +9869,7 @@
       "7663.43"
     ]
   ],
-  "observedClosedBars": 121,
+  "observedClosedBars": 120,
   "gaps": [
     {
       "after": "2026-09-15T20:05:00Z",
@@ -11140,6 +11140,23 @@
     }
   ],
   "revisions": [
+    {
+      "timestamp": "2026-10-22T20:05:00Z",
+      "retained": [
+        "2026-10-22T20:05:00Z",
+        "7664.77",
+        "7664.77",
+        "7663.28",
+        "7663.43"
+      ],
+      "observed": [
+        "2026-10-22T20:05:00Z",
+        "7663.43",
+        "7663.43",
+        "7663.43",
+        "7663.43"
+      ]
+    },
     {
       "timestamp": "2026-10-22T19:15:00Z",
       "retained": [
