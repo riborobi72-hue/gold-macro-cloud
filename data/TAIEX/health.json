@@ -1,15 +1,15 @@
 {
   "state": "CLOSED_REGULAR",
-  "utc": "2026-10-22T08:15:02.538043+00:00",
+  "utc": "2026-10-22T09:15:03.670979+00:00",
   "sessionState": "OUTSIDE_SESSION",
   "lastBarUTC": "2026-10-22T05:20:00Z",
-  "ageMinutes": 175.0,
+  "ageMinutes": 235.02,
   "minutesBehindExpectedSessionBar": 5.0,
   "calendarId": "XTAI",
   "calendarTimezone": "Asia/Taipei",
   "calendarEngine": "exchange_calendars==4.13.2",
   "authState": "PUBLIC_VISIBLE",
-  "runId": "39746029055",
+  "runId": "39753622696",
   "marketStatus": "NON_VERIFICATO",
   "history": {
     "requestedDays": 365,
