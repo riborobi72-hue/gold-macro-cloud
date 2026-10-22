@@ -3,7 +3,7 @@
   "providerSymbol": "SP:SPX",
   "symbol": "SPX",
   "timeframe": "5min",
-  "capturedAt": "2026-10-22T13:14:26.796718+00:00",
+  "capturedAt": "2026-10-22T14:21:30.738408+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -23,10 +23,10 @@
   "displayedChartIdentity": "Chart for SP_NAUTH:SPX, 5 minutes",
   "delayedDisplayed": true,
   "sessionHealth": {
-    "state": "CLOSED_REGULAR",
-    "sessionState": "OUTSIDE_SESSION",
-    "lastBarUTC": "2026-10-21T20:05:00Z",
-    "ageMinutes": 1029.45,
+    "state": "OK",
+    "sessionState": "IN_SESSION",
+    "lastBarUTC": "2026-10-22T14:15:00Z",
+    "ageMinutes": 6.51,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XNYS",
     "calendarTimezone": "America/New_York",
@@ -44,7 +44,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39784826145"
+    "runId": "39793703089"
   },
   "rows": [
     [
@@ -9307,9 +9307,79 @@
       "7757.88",
       "7757.21",
       "7757.22"
+    ],
+    [
+      "2026-10-22T13:30:00Z",
+      "7694.62",
+      "7699.52",
+      "7683.49",
+      "7697.53"
+    ],
+    [
+      "2026-10-22T13:35:00Z",
+      "7696.72",
+      "7699.19",
+      "7691.92",
+      "7698.26"
+    ],
+    [
+      "2026-10-22T13:40:00Z",
+      "7697.67",
+      "7697.67",
+      "7689.38",
+      "7691.47"
+    ],
+    [
+      "2026-10-22T13:45:00Z",
+      "7691.28",
+      "7691.28",
+      "7679.74",
+      "7688.05"
+    ],
+    [
+      "2026-10-22T13:50:00Z",
+      "7688.13",
+      "7688.13",
+      "7678.46",
+      "7686.66"
+    ],
+    [
+      "2026-10-22T13:55:00Z",
+      "7686.82",
+      "7697.88",
+      "7686.03",
+      "7695.96"
+    ],
+    [
+      "2026-10-22T14:00:00Z",
+      "7695.73",
+      "7702.94",
+      "7693.36",
+      "7699.60"
+    ],
+    [
+      "2026-10-22T14:05:00Z",
+      "7699.75",
+      "7699.96",
+      "7686.57",
+      "7687.31"
+    ],
+    [
+      "2026-10-22T14:10:00Z",
+      "7687.44",
+      "7689.15",
+      "7684.93",
+      "7689.15"
+    ],
+    [
+      "2026-10-22T14:15:00Z",
+      "7687.44",
+      "7689.15",
+      "7684.93",
+      "7689.15"
     ]
   ],
-  "observedClosedBars": 120,
+  "observedClosedBars": 121,
   "gaps": [
     {
       "after": "2026-09-15T20:05:00Z",
@@ -10555,6 +10625,19 @@
     {
       "after": "2026-10-20T20:05:00Z",
       "before": "2026-10-21T13:30:00Z",
+      "classification": "REGULAR_CLOSURE",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 208,
+      "unknownSessionSlots": 0,
+      "sessionCounts": {
+        "OUTSIDE_SESSION": 208
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "REGULAR_CLOSURE"
+    },
+    {
+      "after": "2026-10-21T20:05:00Z",
+      "before": "2026-10-22T13:30:00Z",
       "classification": "REGULAR_CLOSURE",
       "missingExpectedBars": 0,
       "regularClosedSlots": 208,
