@@ -3,7 +3,7 @@
   "providerSymbol": "HSI:HSTECH",
   "symbol": "HSTECH",
   "timeframe": "5min",
-  "capturedAt": "2026-10-22T04:14:59.667120+00:00",
+  "capturedAt": "2026-10-22T05:15:25.077843+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -23,10 +23,10 @@
   "displayedChartIdentity": "Chart for HSI:HSTECH, 5 minutes",
   "delayedDisplayed": false,
   "sessionHealth": {
-    "state": "CLOSED_REGULAR",
-    "sessionState": "SCHEDULED_BREAK",
-    "lastBarUTC": "2026-10-22T03:55:00Z",
-    "ageMinutes": 19.99,
+    "state": "OK",
+    "sessionState": "IN_SESSION",
+    "lastBarUTC": "2026-10-22T05:05:00Z",
+    "ageMinutes": 10.42,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XHKG",
     "calendarTimezone": "Asia/Hong_Kong",
@@ -44,7 +44,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "39721078928"
+    "runId": "39726693540"
   },
   "rows": [
     [
@@ -9832,9 +9832,23 @@
       "3811.37",
       "3805.59",
       "3809.50"
+    ],
+    [
+      "2026-10-22T05:00:00Z",
+      "3811.12",
+      "3815.83",
+      "3805.48",
+      "3808.97"
+    ],
+    [
+      "2026-10-22T05:05:00Z",
+      "3808.88",
+      "3811.01",
+      "3805.30",
+      "3806.44"
     ]
   ],
-  "observedClosedBars": 120,
+  "observedClosedBars": 118,
   "gaps": [
     {
       "after": "2026-09-01T07:30:00Z",
@@ -11602,6 +11616,19 @@
       "unknownSessionSlots": 0,
       "sessionCounts": {
         "OUTSIDE_SESSION": 210
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "REGULAR_CLOSURE"
+    },
+    {
+      "after": "2026-10-22T03:55:00Z",
+      "before": "2026-10-22T05:00:00Z",
+      "classification": "REGULAR_CLOSURE",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 12,
+      "unknownSessionSlots": 0,
+      "sessionCounts": {
+        "SCHEDULED_BREAK": 12
       },
       "missingExpectedTimestamps": [],
       "cause": "REGULAR_CLOSURE"
