@@ -1,15 +1,8 @@
 {
-  "state": "OK",
-  "utc": "2026-10-23T02:13:32.601661+00:00",
-  "sessionState": "UNVERIFIED_SESSION",
+  "state": "ERROR_PREVIOUS_FEED_PRESERVED",
+  "utc": "2026-10-23T03:13:58.642056+00:00",
+  "errorType": "TimeoutError",
+  "reason": "Page.screenshot: Timeout 15000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n",
   "lastBarUTC": "2026-10-23T02:05:00Z",
-  "ageMinutes": 8.54,
-  "minutesBehindExpectedSessionBar": null,
-  "calendarId": null,
-  "calendarTimezone": "America/New_York",
-  "calendarEngine": "NON_VERIFICATO",
-  "authState": "PUBLIC_VISIBLE",
-  "runId": "39888302910",
-  "marketStatus": "NON_VERIFICATO",
-  "history": {}
+  "scope": "RECENT"
 }
