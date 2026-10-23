@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:US10Y",
   "symbol": "US10Y",
   "timeframe": "5min",
-  "capturedAt": "2026-10-23T21:13:44.368479+00:00",
+  "capturedAt": "2026-10-23T22:22:36.657190+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -22,8 +22,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-23T21:05:00Z",
-    "ageMinutes": 8.74,
+    "lastBarUTC": "2026-10-23T21:25:00Z",
+    "ageMinutes": 57.61,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -32,16 +32,9 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40025050526"
+    "runId": "40032095185"
   },
   "rows": [
-    [
-      "2026-10-16T02:10:00Z",
-      "5.085",
-      "5.085",
-      "5.083",
-      "5.083"
-    ],
     [
       "2026-10-16T02:15:00Z",
       "5.083",
@@ -10534,6 +10527,13 @@
       "4.999",
       "4.999",
       "4.999"
+    ],
+    [
+      "2026-10-23T21:25:00Z",
+      "4.999",
+      "4.999",
+      "4.999",
+      "4.999"
     ]
   ],
   "observedClosedBars": 122,
@@ -10807,6 +10807,19 @@
       "unknownSessionSlots": 11,
       "sessionCounts": {
         "UNVERIFIED_SESSION": 11
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-23T21:05:00Z",
+      "before": "2026-10-23T21:25:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 3,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 3
       },
       "missingExpectedTimestamps": [],
       "cause": "UNVERIFIED_SESSION"
