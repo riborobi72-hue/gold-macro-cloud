@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:USOIL",
   "symbol": "WTI",
   "timeframe": "5min",
-  "capturedAt": "2026-10-24T18:13:47.980018+00:00",
+  "capturedAt": "2026-10-24T19:13:46.719800+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -24,7 +24,7 @@
     "state": "NO_RECENT_BARS_SESSION_UNVERIFIED",
     "sessionState": "UNVERIFIED_SESSION",
     "lastBarUTC": "2026-10-23T20:55:00Z",
-    "ageMinutes": 1278.8,
+    "ageMinutes": 1338.78,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -42,7 +42,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40119638654"
+    "runId": "40124234456"
   },
   "rows": [
     [
