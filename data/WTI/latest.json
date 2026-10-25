@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:USOIL",
   "symbol": "WTI",
   "timeframe": "5min",
-  "capturedAt": "2026-10-25T21:13:36.178108+00:00",
+  "capturedAt": "2026-10-25T22:14:02.720245+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -21,10 +21,10 @@
   "displayedChartIdentity": "Chart for TVC:USOIL, 5 minutes",
   "delayedDisplayed": false,
   "sessionHealth": {
-    "state": "NO_RECENT_BARS_SESSION_UNVERIFIED",
+    "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-23T20:55:00Z",
-    "ageMinutes": 2898.6,
+    "lastBarUTC": "2026-10-25T22:05:00Z",
+    "ageMinutes": 9.05,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -42,7 +42,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40234393862"
+    "runId": "40239100661"
   },
   "rows": [
     [
@@ -15136,9 +15136,23 @@
       "103.48",
       "103.23",
       "103.45"
+    ],
+    [
+      "2026-10-25T22:00:00Z",
+      "102.61",
+      "102.63",
+      "101.73",
+      "101.79"
+    ],
+    [
+      "2026-10-25T22:05:00Z",
+      "101.84",
+      "101.95",
+      "101.54",
+      "101.78"
     ]
   ],
-  "observedClosedBars": 122,
+  "observedClosedBars": 121,
   "gaps": [
     {
       "after": "2026-10-09T01:10:00Z",
@@ -15500,6 +15514,19 @@
       "unknownSessionSlots": 12,
       "sessionCounts": {
         "UNVERIFIED_SESSION": 12
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-23T20:55:00Z",
+      "before": "2026-10-25T22:00:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 588,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 588
       },
       "missingExpectedTimestamps": [],
       "cause": "UNVERIFIED_SESSION"
