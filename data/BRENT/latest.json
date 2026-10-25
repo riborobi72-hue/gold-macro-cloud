@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:UKOIL",
   "symbol": "BRENT",
   "timeframe": "5min",
-  "capturedAt": "2026-10-25T06:14:13.052078+00:00",
+  "capturedAt": "2026-10-25T07:14:07.859331+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -24,7 +24,7 @@
     "state": "NO_RECENT_BARS_SESSION_UNVERIFIED",
     "sessionState": "UNVERIFIED_SESSION",
     "lastBarUTC": "2026-10-23T21:55:00Z",
-    "ageMinutes": 1939.22,
+    "ageMinutes": 1999.13,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "Europe/London",
@@ -42,7 +42,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40168281149"
+    "runId": "40171909262"
   },
   "rows": [
     [

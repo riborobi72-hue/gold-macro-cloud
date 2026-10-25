@@ -1,15 +1,15 @@
 {
   "state": "NO_RECENT_BARS_SESSION_UNVERIFIED",
-  "utc": "2026-10-25T06:13:51.503303+00:00",
+  "utc": "2026-10-25T07:13:49.120000+00:00",
   "sessionState": "UNVERIFIED_SESSION",
   "lastBarUTC": "2026-10-23T20:55:00Z",
-  "ageMinutes": 1998.86,
+  "ageMinutes": 2058.82,
   "minutesBehindExpectedSessionBar": null,
   "calendarId": null,
   "calendarTimezone": "America/New_York",
   "calendarEngine": "NON_VERIFICATO",
   "authState": "PUBLIC_VISIBLE",
-  "runId": "40168281149",
+  "runId": "40171909262",
   "marketStatus": "NON_VERIFICATO",
   "history": {
     "requestedDays": 365,
