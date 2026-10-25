@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:NI225",
   "symbol": "NI225",
   "timeframe": "5min",
-  "capturedAt": "2026-10-25T08:14:33.005804+00:00",
+  "capturedAt": "2026-10-25T09:14:39.451166+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -27,7 +27,7 @@
     "state": "CLOSED_REGULAR",
     "sessionState": "WEEKEND_CLOSED",
     "lastBarUTC": "2026-10-23T06:30:00Z",
-    "ageMinutes": 2984.55,
+    "ageMinutes": 3044.66,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XTKS",
     "calendarTimezone": "Asia/Tokyo",
@@ -45,7 +45,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40175710797"
+    "runId": "40179687459"
   },
   "rows": [
     [

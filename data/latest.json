@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:DXY",
   "symbol": "DXY",
   "timeframe": "5min",
-  "capturedAt": "2026-10-25T08:13:34.126612+00:00",
+  "capturedAt": "2026-10-25T09:13:32.955320+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -23,7 +23,7 @@
     "state": "NO_RECENT_BARS_SESSION_UNVERIFIED",
     "sessionState": "UNVERIFIED_SESSION",
     "lastBarUTC": "2026-10-23T21:45:00Z",
-    "ageMinutes": 2068.57,
+    "ageMinutes": 2128.55,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -32,7 +32,7 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40175710797"
+    "runId": "40179687459"
   },
   "rows": [
     [
