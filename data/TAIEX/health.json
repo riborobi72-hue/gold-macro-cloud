@@ -1,15 +1,15 @@
 {
   "state": "MISSING_EXPECTED_SESSION_DATA",
-  "utc": "2026-10-25T04:15:00.327677+00:00",
+  "utc": "2026-10-25T05:15:12.748369+00:00",
   "sessionState": "WEEKEND_CLOSED",
   "lastBarUTC": "2026-10-23T01:45:00Z",
-  "ageMinutes": 3029.97,
+  "ageMinutes": 3090.17,
   "minutesBehindExpectedSessionBar": 220.0,
   "calendarId": "XTAI",
   "calendarTimezone": "Asia/Taipei",
   "calendarEngine": "exchange_calendars==4.13.2",
   "authState": "PUBLIC_VISIBLE",
-  "runId": "40161037398",
+  "runId": "40164684145",
   "marketStatus": "NON_VERIFICATO",
   "history": {
     "requestedDays": 365,
