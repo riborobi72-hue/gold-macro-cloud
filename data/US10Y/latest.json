@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:US10Y",
   "symbol": "US10Y",
   "timeframe": "5min",
-  "capturedAt": "2026-10-25T09:13:33.017233+00:00",
+  "capturedAt": "2026-10-25T10:13:28.819623+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -23,7 +23,7 @@
     "state": "NO_RECENT_BARS_SESSION_UNVERIFIED",
     "sessionState": "UNVERIFIED_SESSION",
     "lastBarUTC": "2026-10-23T21:25:00Z",
-    "ageMinutes": 2148.55,
+    "ageMinutes": 2208.48,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -32,7 +32,7 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40179687459"
+    "runId": "40183814700"
   },
   "rows": [
     [
