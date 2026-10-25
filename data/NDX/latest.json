@@ -3,7 +3,7 @@
   "providerSymbol": "NASDAQ:NDX",
   "symbol": "NDX",
   "timeframe": "5min",
-  "capturedAt": "2026-10-25T20:14:34.856044+00:00",
+  "capturedAt": "2026-10-25T21:14:08.619196+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -26,7 +26,7 @@
     "state": "CLOSED_REGULAR",
     "sessionState": "WEEKEND_CLOSED",
     "lastBarUTC": "2026-10-23T20:50:00Z",
-    "ageMinutes": 2844.58,
+    "ageMinutes": 2904.14,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XNYS",
     "calendarTimezone": "America/New_York",
@@ -44,7 +44,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40229671704"
+    "runId": "40234393862"
   },
   "rows": [
     [
