@@ -3,7 +3,7 @@
   "providerSymbol": "HSI:HSTECH",
   "symbol": "HSTECH",
   "timeframe": "5min",
-  "capturedAt": "2026-10-25T12:14:43.103614+00:00",
+  "capturedAt": "2026-10-25T13:14:36.658592+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -26,7 +26,7 @@
     "state": "CLOSED_REGULAR",
     "sessionState": "WEEKEND_CLOSED",
     "lastBarUTC": "2026-10-23T07:55:00Z",
-    "ageMinutes": 3139.72,
+    "ageMinutes": 3199.61,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XHKG",
     "calendarTimezone": "Asia/Hong_Kong",
@@ -44,7 +44,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40192099863"
+    "runId": "40196556190"
   },
   "rows": [
     [
