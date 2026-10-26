@@ -1,15 +1,15 @@
 {
   "state": "OK",
-  "utc": "2026-10-26T04:13:32.618554+00:00",
+  "utc": "2026-10-26T05:13:30.857082+00:00",
   "sessionState": "UNVERIFIED_SESSION",
-  "lastBarUTC": "2026-10-26T04:05:00Z",
-  "ageMinutes": 8.54,
+  "lastBarUTC": "2026-10-26T05:05:00Z",
+  "ageMinutes": 8.51,
   "minutesBehindExpectedSessionBar": null,
   "calendarId": null,
   "calendarTimezone": "America/New_York",
   "calendarEngine": "NON_VERIFICATO",
   "authState": "PUBLIC_VISIBLE",
-  "runId": "40267862956",
+  "runId": "40272980484",
   "marketStatus": "NON_VERIFICATO",
   "history": {}
 }
