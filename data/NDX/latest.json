@@ -3,7 +3,7 @@
   "providerSymbol": "NASDAQ:NDX",
   "symbol": "NDX",
   "timeframe": "5min",
-  "capturedAt": "2026-10-26T20:27:48.463496+00:00",
+  "capturedAt": "2026-10-26T21:14:29.775203+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -25,8 +25,8 @@
   "sessionHealth": {
     "state": "CLOSED_REGULAR",
     "sessionState": "OUTSIDE_SESSION",
-    "lastBarUTC": "2026-10-26T20:20:00Z",
-    "ageMinutes": 7.81,
+    "lastBarUTC": "2026-10-26T20:45:00Z",
+    "ageMinutes": 29.5,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XNYS",
     "calendarTimezone": "America/New_York",
@@ -44,7 +44,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40393578203"
+    "runId": "40402385028"
   },
   "rows": [
     [
@@ -11260,9 +11260,44 @@
       "29291.85",
       "29264.63",
       "29272.46"
+    ],
+    [
+      "2026-10-26T20:25:00Z",
+      "29284.67",
+      "29291.85",
+      "29264.63",
+      "29272.46"
+    ],
+    [
+      "2026-10-26T20:30:00Z",
+      "29284.67",
+      "29291.85",
+      "29264.63",
+      "29272.46"
+    ],
+    [
+      "2026-10-26T20:35:00Z",
+      "29284.67",
+      "29291.85",
+      "29264.63",
+      "29272.46"
+    ],
+    [
+      "2026-10-26T20:40:00Z",
+      "29284.67",
+      "29291.85",
+      "29264.63",
+      "29272.46"
+    ],
+    [
+      "2026-10-26T20:45:00Z",
+      "29284.67",
+      "29291.85",
+      "29264.63",
+      "29272.46"
     ]
   ],
-  "observedClosedBars": 125,
+  "observedClosedBars": 130,
   "gaps": [
     {
       "after": "2026-09-14T19:00:00Z",
