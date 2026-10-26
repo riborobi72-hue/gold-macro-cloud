@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:UKOIL",
   "symbol": "BRENT",
   "timeframe": "5min",
-  "capturedAt": "2026-10-26T21:14:09.935343+00:00",
+  "capturedAt": "2026-10-26T22:14:21.783214+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -23,8 +23,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-26T21:05:00Z",
-    "ageMinutes": 9.17,
+    "lastBarUTC": "2026-10-26T21:55:00Z",
+    "ageMinutes": 19.36,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "Europe/London",
@@ -42,7 +42,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40402385028"
+    "runId": "40410625210"
   },
   "rows": [
     [
@@ -17173,9 +17173,44 @@
       "110.48",
       "110.31",
       "110.34"
+    ],
+    [
+      "2026-10-26T21:10:00Z",
+      "110.35",
+      "110.41",
+      "110.35",
+      "110.41"
+    ],
+    [
+      "2026-10-26T21:20:00Z",
+      "110.37",
+      "110.46",
+      "110.36",
+      "110.46"
+    ],
+    [
+      "2026-10-26T21:25:00Z",
+      "110.40",
+      "110.52",
+      "110.30",
+      "110.48"
+    ],
+    [
+      "2026-10-26T21:45:00Z",
+      "110.37",
+      "110.37",
+      "110.29",
+      "110.31"
+    ],
+    [
+      "2026-10-26T21:55:00Z",
+      "110.22",
+      "110.27",
+      "110.13",
+      "110.14"
     ]
   ],
-  "observedClosedBars": 121,
+  "observedClosedBars": 122,
   "gaps": [
     {
       "after": "2026-10-08T18:30:00Z",
@@ -17732,6 +17767,45 @@
       "unknownSessionSlots": 576,
       "sessionCounts": {
         "UNVERIFIED_SESSION": 576
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-26T21:10:00Z",
+      "before": "2026-10-26T21:20:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 1,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 1
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-26T21:25:00Z",
+      "before": "2026-10-26T21:45:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 3,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 3
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-26T21:45:00Z",
+      "before": "2026-10-26T21:55:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 1,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 1
       },
       "missingExpectedTimestamps": [],
       "cause": "UNVERIFIED_SESSION"
