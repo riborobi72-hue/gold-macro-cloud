@@ -3,7 +3,7 @@
   "providerSymbol": "HSI:HSTECH",
   "symbol": "HSTECH",
   "timeframe": "5min",
-  "capturedAt": "2026-10-27T01:14:53.430160+00:00",
+  "capturedAt": "2026-10-27T02:15:14.461601+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -23,10 +23,10 @@
   "displayedChartIdentity": "Chart for HSI:HSTECH, 5 minutes",
   "delayedDisplayed": false,
   "sessionHealth": {
-    "state": "CLOSED_REGULAR",
-    "sessionState": "OUTSIDE_SESSION",
-    "lastBarUTC": "2026-10-26T07:55:00Z",
-    "ageMinutes": 1039.89,
+    "state": "OK",
+    "sessionState": "IN_SESSION",
+    "lastBarUTC": "2026-10-27T02:05:00Z",
+    "ageMinutes": 10.24,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XHKG",
     "calendarTimezone": "Asia/Hong_Kong",
@@ -44,7 +44,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40431193008"
+    "runId": "40437083324"
   },
   "rows": [
     [
@@ -11008,9 +11008,65 @@
       "3859.44",
       "3854.90",
       "3857.53"
+    ],
+    [
+      "2026-10-27T01:30:00Z",
+      "3886.18",
+      "3907.71",
+      "3872.11",
+      "3879.98"
+    ],
+    [
+      "2026-10-27T01:35:00Z",
+      "3880.05",
+      "3880.05",
+      "3853.68",
+      "3865.60"
+    ],
+    [
+      "2026-10-27T01:40:00Z",
+      "3865.53",
+      "3866.80",
+      "3860.05",
+      "3860.89"
+    ],
+    [
+      "2026-10-27T01:45:00Z",
+      "3861.41",
+      "3861.41",
+      "3846.59",
+      "3847.19"
+    ],
+    [
+      "2026-10-27T01:50:00Z",
+      "3846.28",
+      "3850.58",
+      "3839.26",
+      "3845.48"
+    ],
+    [
+      "2026-10-27T01:55:00Z",
+      "3845.34",
+      "3849.69",
+      "3839.33",
+      "3844.37"
+    ],
+    [
+      "2026-10-27T02:00:00Z",
+      "3844.44",
+      "3846.82",
+      "3841.61",
+      "3844.62"
+    ],
+    [
+      "2026-10-27T02:05:00Z",
+      "3844.92",
+      "3849.52",
+      "3844.63",
+      "3844.82"
     ]
   ],
-  "observedClosedBars": 120,
+  "observedClosedBars": 118,
   "gaps": [
     {
       "after": "2026-09-01T07:30:00Z",
@@ -12844,6 +12900,19 @@
       "unknownSessionSlots": 0,
       "sessionCounts": {
         "SCHEDULED_BREAK": 12
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "REGULAR_CLOSURE"
+    },
+    {
+      "after": "2026-10-26T07:55:00Z",
+      "before": "2026-10-27T01:30:00Z",
+      "classification": "REGULAR_CLOSURE",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 210,
+      "unknownSessionSlots": 0,
+      "sessionCounts": {
+        "OUTSIDE_SESSION": 210
       },
       "missingExpectedTimestamps": [],
       "cause": "REGULAR_CLOSURE"
