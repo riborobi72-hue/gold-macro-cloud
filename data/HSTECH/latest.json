@@ -3,7 +3,7 @@
   "providerSymbol": "HSI:HSTECH",
   "symbol": "HSTECH",
   "timeframe": "5min",
-  "capturedAt": "2026-10-27T03:14:49.074197+00:00",
+  "capturedAt": "2026-10-27T04:15:27.986802+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -23,10 +23,10 @@
   "displayedChartIdentity": "Chart for HSI:HSTECH, 5 minutes",
   "delayedDisplayed": false,
   "sessionHealth": {
-    "state": "OK",
-    "sessionState": "IN_SESSION",
-    "lastBarUTC": "2026-10-27T03:05:00Z",
-    "ageMinutes": 9.82,
+    "state": "CLOSED_REGULAR",
+    "sessionState": "SCHEDULED_BREAK",
+    "lastBarUTC": "2026-10-27T03:55:00Z",
+    "ageMinutes": 20.47,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XHKG",
     "calendarTimezone": "Asia/Hong_Kong",
@@ -44,7 +44,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40442868808"
+    "runId": "40448453555"
   },
   "rows": [
     [
@@ -11148,9 +11148,79 @@
       "3819.40",
       "3811.75",
       "3818.03"
+    ],
+    [
+      "2026-10-27T03:10:00Z",
+      "3816.71",
+      "3819.45",
+      "3815.52",
+      "3816.60"
+    ],
+    [
+      "2026-10-27T03:15:00Z",
+      "3816.66",
+      "3818.27",
+      "3815.37",
+      "3818.20"
+    ],
+    [
+      "2026-10-27T03:20:00Z",
+      "3818.16",
+      "3820.91",
+      "3816.83",
+      "3820.79"
+    ],
+    [
+      "2026-10-27T03:25:00Z",
+      "3820.67",
+      "3821.15",
+      "3817.65",
+      "3818.44"
+    ],
+    [
+      "2026-10-27T03:30:00Z",
+      "3818.41",
+      "3826.99",
+      "3817.25",
+      "3825.87"
+    ],
+    [
+      "2026-10-27T03:35:00Z",
+      "3825.70",
+      "3827.84",
+      "3823.22",
+      "3824.94"
+    ],
+    [
+      "2026-10-27T03:40:00Z",
+      "3824.77",
+      "3828.43",
+      "3824.15",
+      "3828.43"
+    ],
+    [
+      "2026-10-27T03:45:00Z",
+      "3828.24",
+      "3831.11",
+      "3828.24",
+      "3830.03"
+    ],
+    [
+      "2026-10-27T03:50:00Z",
+      "3830.00",
+      "3832.72",
+      "3829.19",
+      "3830.78"
+    ],
+    [
+      "2026-10-27T03:55:00Z",
+      "3830.61",
+      "3831.05",
+      "3827.64",
+      "3827.64"
     ]
   ],
-  "observedClosedBars": 119,
+  "observedClosedBars": 120,
   "gaps": [
     {
       "after": "2026-09-01T07:30:00Z",
