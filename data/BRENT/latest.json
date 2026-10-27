@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:UKOIL",
   "symbol": "BRENT",
   "timeframe": "5min",
-  "capturedAt": "2026-10-27T21:14:09.374313+00:00",
+  "capturedAt": "2026-10-27T22:14:20.035023+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -23,8 +23,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-27T21:05:00Z",
-    "ageMinutes": 9.16,
+    "lastBarUTC": "2026-10-27T21:55:00Z",
+    "ageMinutes": 19.33,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "Europe/London",
@@ -42,7 +42,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40584812663"
+    "runId": "40593002354"
   },
   "rows": [
     [
@@ -18986,9 +18986,58 @@
       "109.64",
       "109.63",
       "109.63"
+    ],
+    [
+      "2026-10-27T21:10:00Z",
+      "109.68",
+      "109.68",
+      "109.62",
+      "109.62"
+    ],
+    [
+      "2026-10-27T21:15:00Z",
+      "109.78",
+      "109.78",
+      "109.78",
+      "109.78"
+    ],
+    [
+      "2026-10-27T21:20:00Z",
+      "109.64",
+      "109.76",
+      "109.64",
+      "109.76"
+    ],
+    [
+      "2026-10-27T21:25:00Z",
+      "109.73",
+      "109.73",
+      "109.65",
+      "109.65"
+    ],
+    [
+      "2026-10-27T21:40:00Z",
+      "109.75",
+      "109.75",
+      "109.62",
+      "109.62"
+    ],
+    [
+      "2026-10-27T21:45:00Z",
+      "109.75",
+      "109.80",
+      "109.75",
+      "109.80"
+    ],
+    [
+      "2026-10-27T21:55:00Z",
+      "109.71",
+      "109.73",
+      "109.71",
+      "109.73"
     ]
   ],
-  "observedClosedBars": 121,
+  "observedClosedBars": 122,
   "gaps": [
     {
       "after": "2026-10-08T18:30:00Z",
@@ -19597,6 +19646,32 @@
       "unknownSessionSlots": 24,
       "sessionCounts": {
         "UNVERIFIED_SESSION": 24
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-27T21:25:00Z",
+      "before": "2026-10-27T21:40:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 2,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 2
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-27T21:45:00Z",
+      "before": "2026-10-27T21:55:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 1,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 1
       },
       "missingExpectedTimestamps": [],
       "cause": "UNVERIFIED_SESSION"
