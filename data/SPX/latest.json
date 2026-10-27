@@ -3,7 +3,7 @@
   "providerSymbol": "SP:SPX",
   "symbol": "SPX",
   "timeframe": "5min",
-  "capturedAt": "2026-10-27T09:14:18.332277+00:00",
+  "capturedAt": "2026-10-27T10:14:18.881791+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -26,7 +26,7 @@
     "state": "CLOSED_REGULAR",
     "sessionState": "OUTSIDE_SESSION",
     "lastBarUTC": "2026-10-26T20:05:00Z",
-    "ageMinutes": 789.31,
+    "ageMinutes": 849.31,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XNYS",
     "calendarTimezone": "America/New_York",
@@ -44,7 +44,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40479029868"
+    "runId": "40486689925"
   },
   "rows": [
     [
