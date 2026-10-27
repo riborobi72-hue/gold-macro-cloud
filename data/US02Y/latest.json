@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:US02Y",
   "symbol": "US02Y",
   "timeframe": "5min",
-  "capturedAt": "2026-10-27T06:13:57.812183+00:00",
+  "capturedAt": "2026-10-27T07:13:56.448334+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -22,8 +22,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-27T06:00:00Z",
-    "ageMinutes": 13.96,
+    "lastBarUTC": "2026-10-27T07:05:00Z",
+    "ageMinutes": 8.94,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -32,79 +32,9 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40459723868"
+    "runId": "40465725636"
   },
   "rows": [
-    [
-      "2026-10-19T05:55:00Z",
-      "4.721",
-      "4.721",
-      "4.721",
-      "4.721"
-    ],
-    [
-      "2026-10-19T06:00:00Z",
-      "4.721",
-      "4.723",
-      "4.721",
-      "4.723"
-    ],
-    [
-      "2026-10-19T06:05:00Z",
-      "4.723",
-      "4.725",
-      "4.723",
-      "4.725"
-    ],
-    [
-      "2026-10-19T06:10:00Z",
-      "4.725",
-      "4.727",
-      "4.725",
-      "4.727"
-    ],
-    [
-      "2026-10-19T06:15:00Z",
-      "4.723",
-      "4.727",
-      "4.723",
-      "4.725"
-    ],
-    [
-      "2026-10-19T06:20:00Z",
-      "4.725",
-      "4.725",
-      "4.725",
-      "4.725"
-    ],
-    [
-      "2026-10-19T06:25:00Z",
-      "4.725",
-      "4.725",
-      "4.725",
-      "4.725"
-    ],
-    [
-      "2026-10-19T06:30:00Z",
-      "4.727",
-      "4.729",
-      "4.727",
-      "4.729"
-    ],
-    [
-      "2026-10-19T06:35:00Z",
-      "4.727",
-      "4.727",
-      "4.725",
-      "4.725"
-    ],
-    [
-      "2026-10-19T06:40:00Z",
-      "4.725",
-      "4.725",
-      "4.723",
-      "4.723"
-    ],
     [
       "2026-10-19T06:45:00Z",
       "4.723",
@@ -10534,6 +10464,76 @@
       "4.699",
       "4.697",
       "4.697"
+    ],
+    [
+      "2026-10-27T06:10:00Z",
+      "4.699",
+      "4.702",
+      "4.699",
+      "4.702"
+    ],
+    [
+      "2026-10-27T06:15:00Z",
+      "4.702",
+      "4.702",
+      "4.699",
+      "4.702"
+    ],
+    [
+      "2026-10-27T06:20:00Z",
+      "4.699",
+      "4.702",
+      "4.699",
+      "4.702"
+    ],
+    [
+      "2026-10-27T06:25:00Z",
+      "4.702",
+      "4.702",
+      "4.699",
+      "4.702"
+    ],
+    [
+      "2026-10-27T06:30:00Z",
+      "4.704",
+      "4.704",
+      "4.704",
+      "4.704"
+    ],
+    [
+      "2026-10-27T06:35:00Z",
+      "4.704",
+      "4.706",
+      "4.704",
+      "4.704"
+    ],
+    [
+      "2026-10-27T06:40:00Z",
+      "4.706",
+      "4.706",
+      "4.706",
+      "4.706"
+    ],
+    [
+      "2026-10-27T06:45:00Z",
+      "4.704",
+      "4.704",
+      "4.704",
+      "4.704"
+    ],
+    [
+      "2026-10-27T07:00:00Z",
+      "4.706",
+      "4.708",
+      "4.706",
+      "4.708"
+    ],
+    [
+      "2026-10-27T07:05:00Z",
+      "4.708",
+      "4.710",
+      "4.708",
+      "4.710"
     ]
   ],
   "observedClosedBars": 121,
@@ -11210,6 +11210,32 @@
       "unknownSessionSlots": 1,
       "sessionCounts": {
         "UNVERIFIED_SESSION": 1
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-27T06:00:00Z",
+      "before": "2026-10-27T06:10:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 1,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 1
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-27T06:45:00Z",
+      "before": "2026-10-27T07:00:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 2,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 2
       },
       "missingExpectedTimestamps": [],
       "cause": "UNVERIFIED_SESSION"
