@@ -3,7 +3,7 @@
   "providerSymbol": "TWSE:IX0001",
   "symbol": "TAIEX",
   "timeframe": "5min",
-  "capturedAt": "2026-10-27T00:15:01.152191+00:00",
+  "capturedAt": "2026-10-27T01:14:57.174827+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -24,11 +24,11 @@
   "displayedChartIdentity": "Chart for TWSE_DLY:IX0001, 5 minutes",
   "delayedDisplayed": true,
   "sessionHealth": {
-    "state": "MISSING_EXPECTED_SESSION_DATA",
-    "sessionState": "OUTSIDE_SESSION",
-    "lastBarUTC": "2026-10-23T01:45:00Z",
-    "ageMinutes": 5670.02,
-    "minutesBehindExpectedSessionBar": 220.0,
+    "state": "OK",
+    "sessionState": "IN_SESSION",
+    "lastBarUTC": "2026-10-27T01:05:00Z",
+    "ageMinutes": 9.95,
+    "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XTAI",
     "calendarTimezone": "Asia/Taipei",
     "calendarEngine": "exchange_calendars==4.13.2"
@@ -45,7 +45,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40424903378"
+    "runId": "40431193008"
   },
   "rows": [
     [
@@ -10225,9 +10225,23 @@
       "46109.99",
       "46041.47",
       "46107.43"
+    ],
+    [
+      "2026-10-27T01:00:00Z",
+      "46089.61",
+      "46109.99",
+      "46041.47",
+      "46107.43"
+    ],
+    [
+      "2026-10-27T01:05:00Z",
+      "46089.61",
+      "46109.99",
+      "46041.47",
+      "46107.43"
     ]
   ],
-  "observedClosedBars": 120,
+  "observedClosedBars": 122,
   "gaps": [
     {
       "after": "2026-08-19T05:20:00Z",
@@ -11888,6 +11902,67 @@
         "2026-10-22T05:25:00Z"
       ],
       "cause": "UNVERIFIED_SOURCE_OR_UI_GAP"
+    },
+    {
+      "after": "2026-10-23T01:45:00Z",
+      "before": "2026-10-27T01:00:00Z",
+      "classification": "MIXED_CLOSURE_AND_MISSING",
+      "missingExpectedBars": 44,
+      "regularClosedSlots": 1098,
+      "unknownSessionSlots": 0,
+      "sessionCounts": {
+        "IN_SESSION": 44,
+        "OUTSIDE_SESSION": 234,
+        "WEEKEND_CLOSED": 576,
+        "HOLIDAY_CLOSED": 288
+      },
+      "missingExpectedTimestamps": [
+        "2026-10-23T01:50:00Z",
+        "2026-10-23T01:55:00Z",
+        "2026-10-23T02:00:00Z",
+        "2026-10-23T02:05:00Z",
+        "2026-10-23T02:10:00Z",
+        "2026-10-23T02:15:00Z",
+        "2026-10-23T02:20:00Z",
+        "2026-10-23T02:25:00Z",
+        "2026-10-23T02:30:00Z",
+        "2026-10-23T02:35:00Z",
+        "2026-10-23T02:40:00Z",
+        "2026-10-23T02:45:00Z",
+        "2026-10-23T02:50:00Z",
+        "2026-10-23T02:55:00Z",
+        "2026-10-23T03:00:00Z",
+        "2026-10-23T03:05:00Z",
+        "2026-10-23T03:10:00Z",
+        "2026-10-23T03:15:00Z",
+        "2026-10-23T03:20:00Z",
+        "2026-10-23T03:25:00Z",
+        "2026-10-23T03:30:00Z",
+        "2026-10-23T03:35:00Z",
+        "2026-10-23T03:40:00Z",
+        "2026-10-23T03:45:00Z",
+        "2026-10-23T03:50:00Z",
+        "2026-10-23T03:55:00Z",
+        "2026-10-23T04:00:00Z",
+        "2026-10-23T04:05:00Z",
+        "2026-10-23T04:10:00Z",
+        "2026-10-23T04:15:00Z",
+        "2026-10-23T04:20:00Z",
+        "2026-10-23T04:25:00Z",
+        "2026-10-23T04:30:00Z",
+        "2026-10-23T04:35:00Z",
+        "2026-10-23T04:40:00Z",
+        "2026-10-23T04:45:00Z",
+        "2026-10-23T04:50:00Z",
+        "2026-10-23T04:55:00Z",
+        "2026-10-23T05:00:00Z",
+        "2026-10-23T05:05:00Z",
+        "2026-10-23T05:10:00Z",
+        "2026-10-23T05:15:00Z",
+        "2026-10-23T05:20:00Z",
+        "2026-10-23T05:25:00Z"
+      ],
+      "cause": "UNVERIFIED_SOURCE_OR_UI_GAP"
     }
   ],
   "revisions": [
@@ -12124,9 +12199,9 @@
       "observed": [
         "2026-10-22T01:55:00Z",
         "46894.50",
-        "46943.10",
+        "46944.19",
         "46889.13",
-        "46943.10"
+        "46915.20"
       ]
     },
     {
