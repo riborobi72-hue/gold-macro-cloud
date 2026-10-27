@@ -3,7 +3,7 @@
   "providerSymbol": "TWSE:IX0001",
   "symbol": "TAIEX",
   "timeframe": "5min",
-  "capturedAt": "2026-10-27T11:15:12.574036+00:00",
+  "capturedAt": "2026-10-27T12:25:03.651210+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -27,7 +27,7 @@
     "state": "CLOSED_REGULAR",
     "sessionState": "OUTSIDE_SESSION",
     "lastBarUTC": "2026-10-27T05:20:00Z",
-    "ageMinutes": 355.21,
+    "ageMinutes": 425.06,
     "minutesBehindExpectedSessionBar": 5.0,
     "calendarId": "XTAI",
     "calendarTimezone": "Asia/Taipei",
@@ -45,7 +45,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40494392657"
+    "runId": "40501952856"
   },
   "rows": [
     [
@@ -12438,8 +12438,8 @@
         "2026-10-27T03:55:00Z",
         "46001.37",
         "46008.82",
-        "45914.47",
-        "45923.44"
+        "45945.94",
+        "45947.83"
       ]
     },
     {
