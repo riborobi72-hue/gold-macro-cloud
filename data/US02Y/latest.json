@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:US02Y",
   "symbol": "US02Y",
   "timeframe": "5min",
-  "capturedAt": "2026-10-28T04:13:53.616450+00:00",
+  "capturedAt": "2026-10-28T05:13:50.856969+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -22,8 +22,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-28T04:05:00Z",
-    "ageMinutes": 8.89,
+    "lastBarUTC": "2026-10-28T05:00:00Z",
+    "ageMinutes": 13.85,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -32,58 +32,9 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40631013180"
+    "runId": "40636625241"
   },
   "rows": [
-    [
-      "2026-10-20T03:45:00Z",
-      "4.765",
-      "4.765",
-      "4.765",
-      "4.765"
-    ],
-    [
-      "2026-10-20T03:50:00Z",
-      "4.765",
-      "4.765",
-      "4.763",
-      "4.763"
-    ],
-    [
-      "2026-10-20T03:55:00Z",
-      "4.763",
-      "4.763",
-      "4.763",
-      "4.763"
-    ],
-    [
-      "2026-10-20T04:00:00Z",
-      "4.763",
-      "4.763",
-      "4.761",
-      "4.761"
-    ],
-    [
-      "2026-10-20T04:05:00Z",
-      "4.761",
-      "4.761",
-      "4.761",
-      "4.761"
-    ],
-    [
-      "2026-10-20T04:10:00Z",
-      "4.761",
-      "4.763",
-      "4.761",
-      "4.763"
-    ],
-    [
-      "2026-10-20T04:15:00Z",
-      "4.763",
-      "4.763",
-      "4.763",
-      "4.763"
-    ],
     [
       "2026-10-20T04:20:00Z",
       "4.763",
@@ -10534,6 +10485,55 @@
       "4.749",
       "4.749",
       "4.749"
+    ],
+    [
+      "2026-10-28T04:10:00Z",
+      "4.749",
+      "4.749",
+      "4.749",
+      "4.749"
+    ],
+    [
+      "2026-10-28T04:35:00Z",
+      "4.751",
+      "4.751",
+      "4.751",
+      "4.751"
+    ],
+    [
+      "2026-10-28T04:40:00Z",
+      "4.751",
+      "4.751",
+      "4.751",
+      "4.751"
+    ],
+    [
+      "2026-10-28T04:45:00Z",
+      "4.753",
+      "4.753",
+      "4.753",
+      "4.753"
+    ],
+    [
+      "2026-10-28T04:50:00Z",
+      "4.753",
+      "4.753",
+      "4.751",
+      "4.751"
+    ],
+    [
+      "2026-10-28T04:55:00Z",
+      "4.749",
+      "4.751",
+      "4.749",
+      "4.751"
+    ],
+    [
+      "2026-10-28T05:00:00Z",
+      "4.751",
+      "4.753",
+      "4.751",
+      "4.753"
     ]
   ],
   "observedClosedBars": 121,
@@ -11236,6 +11236,19 @@
       "unknownSessionSlots": 1,
       "sessionCounts": {
         "UNVERIFIED_SESSION": 1
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-28T04:10:00Z",
+      "before": "2026-10-28T04:35:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 4,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 4
       },
       "missingExpectedTimestamps": [],
       "cause": "UNVERIFIED_SESSION"
