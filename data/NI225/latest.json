@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:NI225",
   "symbol": "NI225",
   "timeframe": "5min",
-  "capturedAt": "2026-10-27T23:14:55.821686+00:00",
+  "capturedAt": "2026-10-28T00:15:20.152700+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -24,10 +24,10 @@
   "displayedChartIdentity": "Chart for TVC:NI225, 5 minutes",
   "delayedDisplayed": false,
   "sessionHealth": {
-    "state": "CLOSED_REGULAR",
-    "sessionState": "OUTSIDE_SESSION",
-    "lastBarUTC": "2026-10-27T06:30:00Z",
-    "ageMinutes": 1004.93,
+    "state": "OK",
+    "sessionState": "IN_SESSION",
+    "lastBarUTC": "2026-10-28T00:05:00Z",
+    "ageMinutes": 10.34,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XTKS",
     "calendarTimezone": "Asia/Tokyo",
@@ -45,7 +45,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40600505809"
+    "runId": "40607266221"
   },
   "rows": [
     [
@@ -11548,9 +11548,23 @@
       "63268.32",
       "63255.03",
       "63268.32"
+    ],
+    [
+      "2026-10-28T00:00:00Z",
+      "63738.98",
+      "64124.54",
+      "63660.30",
+      "64076.83"
+    ],
+    [
+      "2026-10-28T00:05:00Z",
+      "64070.25",
+      "64114.00",
+      "63928.25",
+      "64046.37"
     ]
   ],
-  "observedClosedBars": 120,
+  "observedClosedBars": 118,
   "gaps": [
     {
       "after": "2026-08-31T02:25:00Z",
@@ -13389,6 +13403,19 @@
       "unknownSessionSlots": 0,
       "sessionCounts": {
         "SCHEDULED_BREAK": 12
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "REGULAR_CLOSURE"
+    },
+    {
+      "after": "2026-10-27T06:30:00Z",
+      "before": "2026-10-28T00:00:00Z",
+      "classification": "REGULAR_CLOSURE",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 209,
+      "unknownSessionSlots": 0,
+      "sessionCounts": {
+        "OUTSIDE_SESSION": 209
       },
       "missingExpectedTimestamps": [],
       "cause": "REGULAR_CLOSURE"
