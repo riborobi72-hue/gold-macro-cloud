@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:US10Y",
   "symbol": "US10Y",
   "timeframe": "5min",
-  "capturedAt": "2026-10-28T22:13:26.910551+00:00",
+  "capturedAt": "2026-10-28T23:13:14.473061+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -22,8 +22,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-28T21:25:00Z",
-    "ageMinutes": 48.45,
+    "lastBarUTC": "2026-10-28T23:05:00Z",
+    "ageMinutes": 8.24,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "America/New_York",
@@ -32,23 +32,9 @@
   "history": {},
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40778158912"
+    "runId": "40785689554"
   },
   "rows": [
-    [
-      "2026-10-21T01:55:00Z",
-      "5.127",
-      "5.132",
-      "5.127",
-      "5.132"
-    ],
-    [
-      "2026-10-21T02:00:00Z",
-      "5.129",
-      "5.132",
-      "5.127",
-      "5.127"
-    ],
     [
       "2026-10-21T02:05:00Z",
       "5.132",
@@ -10534,9 +10520,23 @@
       "5.003",
       "5.003",
       "5.003"
+    ],
+    [
+      "2026-10-28T23:00:00Z",
+      "5.003",
+      "5.003",
+      "5.003",
+      "5.003"
+    ],
+    [
+      "2026-10-28T23:05:00Z",
+      "5.003",
+      "5.003",
+      "5.003",
+      "5.003"
     ]
   ],
-  "observedClosedBars": 122,
+  "observedClosedBars": 124,
   "gaps": [
     {
       "after": "2026-10-21T03:30:00Z",
@@ -10872,6 +10872,19 @@
       "unknownSessionSlots": 3,
       "sessionCounts": {
         "UNVERIFIED_SESSION": 3
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-28T21:25:00Z",
+      "before": "2026-10-28T23:00:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 18,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 18
       },
       "missingExpectedTimestamps": [],
       "cause": "UNVERIFIED_SESSION"
