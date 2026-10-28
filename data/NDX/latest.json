@@ -3,7 +3,7 @@
   "providerSymbol": "NASDAQ:NDX",
   "symbol": "NDX",
   "timeframe": "5min",
-  "capturedAt": "2026-10-28T13:14:29.484236+00:00",
+  "capturedAt": "2026-10-28T14:14:51.905996+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -23,10 +23,10 @@
   "displayedChartIdentity": "Chart for NASDAQ_DLY:NDX, 5 minutes",
   "delayedDisplayed": true,
   "sessionHealth": {
-    "state": "CLOSED_REGULAR",
-    "sessionState": "OUTSIDE_SESSION",
-    "lastBarUTC": "2026-10-27T20:50:00Z",
-    "ageMinutes": 984.49,
+    "state": "OK",
+    "sessionState": "IN_SESSION",
+    "lastBarUTC": "2026-10-28T14:05:00Z",
+    "ageMinutes": 9.87,
     "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XNYS",
     "calendarTimezone": "America/New_York",
@@ -44,7 +44,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40694326602"
+    "runId": "40703667323"
   },
   "rows": [
     [
@@ -11925,9 +11925,65 @@
       "29653.58",
       "29653.58",
       "29653.58"
+    ],
+    [
+      "2026-10-28T13:30:00Z",
+      "29732.04",
+      "29798.66",
+      "29727.23",
+      "29778.89"
+    ],
+    [
+      "2026-10-28T13:35:00Z",
+      "29777.28",
+      "29777.57",
+      "29726.39",
+      "29746.55"
+    ],
+    [
+      "2026-10-28T13:40:00Z",
+      "29746.15",
+      "29746.15",
+      "29710.49",
+      "29725.58"
+    ],
+    [
+      "2026-10-28T13:45:00Z",
+      "29723.61",
+      "29723.96",
+      "29618.42",
+      "29631.74"
+    ],
+    [
+      "2026-10-28T13:50:00Z",
+      "29631.88",
+      "29678.59",
+      "29631.88",
+      "29678.34"
+    ],
+    [
+      "2026-10-28T13:55:00Z",
+      "29677.85",
+      "29708.81",
+      "29659.68",
+      "29699.48"
+    ],
+    [
+      "2026-10-28T14:00:00Z",
+      "29677.85",
+      "29708.81",
+      "29659.68",
+      "29699.48"
+    ],
+    [
+      "2026-10-28T14:05:00Z",
+      "29677.85",
+      "29708.81",
+      "29659.68",
+      "29700.72"
     ]
   ],
-  "observedClosedBars": 130,
+  "observedClosedBars": 122,
   "gaps": [
     {
       "after": "2026-09-14T19:00:00Z",
@@ -13307,9 +13363,39 @@
       },
       "missingExpectedTimestamps": [],
       "cause": "REGULAR_CLOSURE"
+    },
+    {
+      "after": "2026-10-27T20:50:00Z",
+      "before": "2026-10-28T13:30:00Z",
+      "classification": "REGULAR_CLOSURE",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 199,
+      "unknownSessionSlots": 0,
+      "sessionCounts": {
+        "OUTSIDE_SESSION": 199
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "REGULAR_CLOSURE"
     }
   ],
   "revisions": [
+    {
+      "timestamp": "2026-10-27T20:00:00Z",
+      "retained": [
+        "2026-10-27T20:00:00Z",
+        "29653.58",
+        "29653.58",
+        "29653.58",
+        "29653.58"
+      ],
+      "observed": [
+        "2026-10-27T20:00:00Z",
+        "29653.58",
+        "29653.58",
+        "29651.44",
+        "29651.44"
+      ]
+    },
     {
       "timestamp": "2026-10-27T19:05:00Z",
       "retained": [
@@ -13733,57 +13819,6 @@
         "29369.56",
         "29335.40",
         "29361.46"
-      ]
-    },
-    {
-      "timestamp": "2026-10-26T17:05:00Z",
-      "retained": [
-        "2026-10-26T17:05:00Z",
-        "29274.93",
-        "29304.54",
-        "29273.44",
-        "29304.54"
-      ],
-      "observed": [
-        "2026-10-26T17:05:00Z",
-        "29334.52",
-        "29350.31",
-        "29333.09",
-        "29336.72"
-      ]
-    },
-    {
-      "timestamp": "2026-10-26T17:00:00Z",
-      "retained": [
-        "2026-10-26T17:00:00Z",
-        "29274.93",
-        "29304.54",
-        "29273.44",
-        "29304.54"
-      ],
-      "observed": [
-        "2026-10-26T17:00:00Z",
-        "29315.96",
-        "29341.90",
-        "29314.53",
-        "29334.57"
-      ]
-    },
-    {
-      "timestamp": "2026-10-26T16:55:00Z",
-      "retained": [
-        "2026-10-26T16:55:00Z",
-        "29274.93",
-        "29304.54",
-        "29273.44",
-        "29304.54"
-      ],
-      "observed": [
-        "2026-10-26T16:55:00Z",
-        "29274.93",
-        "29318.53",
-        "29273.44",
-        "29315.89"
       ]
     }
   ]
