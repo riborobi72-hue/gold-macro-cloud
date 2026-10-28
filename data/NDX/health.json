@@ -1,8 +1,24 @@
 {
-  "state": "ERROR_PREVIOUS_FEED_PRESERVED",
-  "utc": "2026-10-28T19:14:21.158717+00:00",
-  "errorType": "RuntimeError",
-  "reason": "INTRA_RUN_REVISION",
-  "lastBarUTC": "2026-10-28T18:05:00Z",
-  "scope": "RECENT"
+  "state": "CLOSED_REGULAR",
+  "utc": "2026-10-28T20:14:36.005303+00:00",
+  "sessionState": "OUTSIDE_SESSION",
+  "lastBarUTC": "2026-10-28T20:05:00Z",
+  "ageMinutes": 9.57,
+  "minutesBehindExpectedSessionBar": 0,
+  "calendarId": "XNYS",
+  "calendarTimezone": "America/New_York",
+  "calendarEngine": "exchange_calendars==4.13.2",
+  "authState": "PUBLIC_VISIBLE",
+  "runId": "40761182588",
+  "marketStatus": "NON_VERIFICATO",
+  "history": {
+    "requestedDays": 365,
+    "planIntradayBarLimit": 5000,
+    "targetBars": 5000,
+    "availableCapturedBars": 1251,
+    "scannedPagesThisRun": 21,
+    "boundary": "ORDINARY_LOGIN_REQUIRED",
+    "completed": true,
+    "firstUTC": "2026-09-14T18:20:00Z"
+  }
 }
