@@ -3,7 +3,7 @@
   "providerSymbol": "TVC:UKOIL",
   "symbol": "BRENT",
   "timeframe": "5min",
-  "capturedAt": "2026-10-28T23:13:48.903919+00:00",
+  "capturedAt": "2026-10-29T00:14:29.306157+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -23,8 +23,8 @@
   "sessionHealth": {
     "state": "OK",
     "sessionState": "UNVERIFIED_SESSION",
-    "lastBarUTC": "2026-10-28T21:55:00Z",
-    "ageMinutes": 78.82,
+    "lastBarUTC": "2026-10-29T00:05:00Z",
+    "ageMinutes": 9.49,
     "minutesBehindExpectedSessionBar": null,
     "calendarId": null,
     "calendarTimezone": "Europe/London",
@@ -42,7 +42,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40785689554"
+    "runId": "40792518543"
   },
   "rows": [
     [
@@ -20883,9 +20883,23 @@
       "110.84",
       "110.65",
       "110.75"
+    ],
+    [
+      "2026-10-29T00:00:00Z",
+      "110.54",
+      "110.74",
+      "110.51",
+      "110.71"
+    ],
+    [
+      "2026-10-29T00:05:00Z",
+      "110.72",
+      "110.74",
+      "110.60",
+      "110.74"
     ]
   ],
-  "observedClosedBars": 122,
+  "observedClosedBars": 121,
   "gaps": [
     {
       "after": "2026-10-08T18:30:00Z",
@@ -21527,6 +21541,19 @@
     {
       "after": "2026-10-27T21:55:00Z",
       "before": "2026-10-28T00:00:00Z",
+      "classification": "UNVERIFIED_SESSION",
+      "missingExpectedBars": 0,
+      "regularClosedSlots": 0,
+      "unknownSessionSlots": 24,
+      "sessionCounts": {
+        "UNVERIFIED_SESSION": 24
+      },
+      "missingExpectedTimestamps": [],
+      "cause": "UNVERIFIED_SESSION"
+    },
+    {
+      "after": "2026-10-28T21:55:00Z",
+      "before": "2026-10-29T00:00:00Z",
       "classification": "UNVERIFIED_SESSION",
       "missingExpectedBars": 0,
       "regularClosedSlots": 0,
