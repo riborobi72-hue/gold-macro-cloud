@@ -3,7 +3,7 @@
   "providerSymbol": "TWSE:IX0001",
   "symbol": "TAIEX",
   "timeframe": "5min",
-  "capturedAt": "2026-10-29T00:15:19.850050+00:00",
+  "capturedAt": "2026-10-29T01:14:34.115117+00:00",
   "closureGraceSeconds": 60,
   "method": "visible_data_window",
   "authState": "PUBLIC_VISIBLE",
@@ -24,11 +24,11 @@
   "displayedChartIdentity": "Chart for TWSE_DLY:IX0001, 5 minutes",
   "delayedDisplayed": true,
   "sessionHealth": {
-    "state": "CLOSED_REGULAR",
-    "sessionState": "OUTSIDE_SESSION",
-    "lastBarUTC": "2026-10-28T05:20:00Z",
-    "ageMinutes": 1135.33,
-    "minutesBehindExpectedSessionBar": 5.0,
+    "state": "OK",
+    "sessionState": "IN_SESSION",
+    "lastBarUTC": "2026-10-29T01:05:00Z",
+    "ageMinutes": 9.57,
+    "minutesBehindExpectedSessionBar": 0,
     "calendarId": "XTAI",
     "calendarTimezone": "Asia/Taipei",
     "calendarEngine": "exchange_calendars==4.13.2"
@@ -45,7 +45,7 @@
   },
   "execution": {
     "event": "workflow_dispatch",
-    "runId": "40792518543"
+    "runId": "40798989832"
   },
   "rows": [
     [
@@ -10967,9 +10967,23 @@
       "47021.29",
       "46904.64",
       "47021.29"
+    ],
+    [
+      "2026-10-29T01:00:00Z",
+      "46956.37",
+      "47021.29",
+      "46904.64",
+      "47021.29"
+    ],
+    [
+      "2026-10-29T01:05:00Z",
+      "46956.37",
+      "47021.29",
+      "46904.64",
+      "47021.29"
     ]
   ],
-  "observedClosedBars": 120,
+  "observedClosedBars": 122,
   "gaps": [
     {
       "after": "2026-08-19T05:20:00Z",
@@ -12705,6 +12719,22 @@
       },
       "missingExpectedTimestamps": [
         "2026-10-27T05:25:00Z"
+      ],
+      "cause": "UNVERIFIED_SOURCE_OR_UI_GAP"
+    },
+    {
+      "after": "2026-10-28T05:20:00Z",
+      "before": "2026-10-29T01:00:00Z",
+      "classification": "MIXED_CLOSURE_AND_MISSING",
+      "missingExpectedBars": 1,
+      "regularClosedSlots": 234,
+      "unknownSessionSlots": 0,
+      "sessionCounts": {
+        "IN_SESSION": 1,
+        "OUTSIDE_SESSION": 234
+      },
+      "missingExpectedTimestamps": [
+        "2026-10-28T05:25:00Z"
       ],
       "cause": "UNVERIFIED_SOURCE_OR_UI_GAP"
     }
